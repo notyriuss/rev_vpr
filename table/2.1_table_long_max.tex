@@ -1,0 +1,27 @@
+\begin{subtable}{\linewidth}
+\centering
+\caption{Precision (Pr.) and the maximum F1 score (mF1) for the sequence pairs longer than 10000 images, comparing all models against ours. The $\Delta$ columns indicate the improvement of each LARFSOM variant over its corresponding descriptor.}
+\label{tab:precision_mf1_long}
+
+\resizebox{\linewidth}{!}{
+\begin{tabular}{lccccccccccccccccccccc}
+\hline
+ & \multicolumn{4}{c}{Robotcar (pair 1)} & \multicolumn{4}{c}{Robotcar (pair 2)} & \multicolumn{4}{c}{Robotcar (pair 3)} & \multicolumn{4}{c}{Nordland} & \multicolumn{4}{c}{Pitts30k} \\ 
+\cmidrule(lr){2-5}\cmidrule(lr){6-9}\cmidrule(lr){10-13}\cmidrule(lr){14-17}\cmidrule(lr){18-21}
+ & Pr. & mF1 & $\Delta$Pr. & $\Delta$mF1 & Pr. & mF1 & $\Delta$Pr. & $\Delta$mF1 & Pr. & mF1 & $\Delta$Pr. & $\Delta$mF1 & Pr. & mF1 & $\Delta$Pr. & $\Delta$mF1 & Pr. & mF1 & $\Delta$Pr. & $\Delta$mF1 \\ 
+\midrule
+SeqSLAM & 11.12 & 47.19 &  &  & 10.61 & 40.85 &  &  & 25.46 & 65.89 &  &  & \textbf{68.93} & 81.61 &  &  & - & - &  &  \\
+ScMuSOM & 55.05 & 71.01 &  &  & 16.58 & 28.44 &  &  & 95.80 & 97.86 &  &  & 22.78 & 39.98 &  &  & 64.65 & 87.12 &  &  \\
+MixVPR & 79.04 & \textbf{91.07} &  &  & 62.29 & \textbf{86.88} &  &  & 96.01 & \textbf{99.66} &  &  & 62.92 & 79.41 &  &  & 91.49 & 95.57 &  &  \\
+Cosplace & 32.71 & 51.66 &  &  & 22.45 & 53.33 &  &  & \textbf{96.63} & 99.29 &  &  & 45.21 & 60.74 &  &  & 90.95 & 95.25 &  &  \\
+Eigenplaces & 52.35 & 68.73 &  &  & 50.99 & 75.21 &  &  & 96.3 & 99.60 &  &  & 41.18 & 64.62 &  &  & \textbf{92.52} & \textbf{96.12} &  &  \\
+ResNet & 75.58 & 86.12 &  &  & 40.78 & 73.97 &  &  & 95.92 & 99.47 &  &  & 45.37 & 68.22 &  &  & 86.77 & 93.01 &  &  \\
+\midrule
+STS-VPR(MixVPR) & \textbf{81.58} & 89.82 & \textcolor{green}{+2.54} & \textcolor{red}{-1.25} & \textbf{64.97} & 79.24 & \textcolor{green}{+2.68} & \textcolor{red}{-7.64} & 96.01 & 98.35 & +0.00 & \textcolor{red}{-1.31} & 63.47 & \textbf{82.44} & \textcolor{green}{+0.55} & \textcolor{green}{+3.03} & 61.09 & 76.35 & \textcolor{red}{-30.40} & \textcolor{red}{-19.22} \\
+STS-VPR(Cosplace) & 65.98 & 77.78 & \textcolor{green}{+33.27} & \textcolor{green}{+26.12} & 23.42 & 53.26 & \textcolor{green}{+0.97} & \textcolor{red}{-0.07} & \textbf{96.63} & 98.81 & +0.00 & \textcolor{red}{-0.48} & 45.29 & 67.60 & \textcolor{green}{+0.08} & \textcolor{green}{+6.86} & 62.95 & 77.45 & \textcolor{red}{-28.00} & \textcolor{red}{-17.80} \\
+STS-VPR(Eigenplaces) & 78.13 & 85.17 & \textcolor{green}{+25.78} & \textcolor{green}{+16.44} & 44.51 & 71.02 & \textcolor{red}{-6.48} & \textcolor{red}{-4.19} & 96.3 & 99.30 & +0.00 & \textcolor{red}{-0.30} & 47.17 & 68.77 & \textcolor{green}{+5.99} & \textcolor{green}{+4.15} & 63.85 & 78.03 & \textcolor{red}{-28.67} & \textcolor{red}{-18.09} \\
+STS-VPR(ResNet) & 80.61 & 89.21 & \textcolor{green}{+5.03} & \textcolor{green}{+3.09} & 40.78 & 58.52 & +0.00 & \textcolor{red}{-15.45} & 95.92 & 97.92 & +0.00 & \textcolor{red}{-1.55} & 47.20 & 67.41 & \textcolor{green}{+1.83} & \textcolor{red}{-0.81} & 61.80 & 77.25 & \textcolor{red}{-24.97} & \textcolor{red}{-15.76} \\ 
+\hline
+\end{tabular}
+}
+\end{subtable}

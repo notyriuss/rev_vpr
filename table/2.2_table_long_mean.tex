@@ -1,0 +1,59 @@
+\begin{subtable}{\linewidth}
+\centering
+\caption{Mean precision (Pr.), mean F1 score (mF1), and average improvements ($\Delta$) of STS-VPR over the corresponding baselines for sequence pairs longer than 10,000 images.}
+\label{tab:mean_precision_long}
+
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccccccccccccccccc}
+\hline
+ & \multicolumn{4}{c}{Robotcar (pair 1)}
+ & \multicolumn{4}{c}{Robotcar (pair 2)}
+ & \multicolumn{4}{c}{Robotcar (pair 3)}
+ & \multicolumn{4}{c}{Nordland}
+ & \multicolumn{4}{c}{Pitts30k} \\
+
+\cmidrule(lr){2-5}
+\cmidrule(lr){6-9}
+\cmidrule(lr){10-13}
+\cmidrule(lr){14-17}
+\cmidrule(lr){18-21}
+
+ & Pr. & mF1 & $\Delta$Pr. & $\Delta$mF1
+ & Pr. & mF1 & $\Delta$Pr. & $\Delta$mF1
+ & Pr. & mF1 & $\Delta$Pr. & $\Delta$mF1
+ & Pr. & mF1 & $\Delta$Pr. & $\Delta$mF1
+ & Pr. & mF1 & $\Delta$Pr. & $\Delta$mF1 \\
+
+\hline
+STS-VPR (MixVPR)
+ & 81.55/0.03 & 89.52/0.07 & \textcolor{green}{+2.51} & \textcolor{red}{-1.55}
+ & 64.57/0.33 & 78.77/0.43 & \textcolor{green}{+2.28} & \textcolor{red}{-8.11}
+ & 95.67/0.45 & 98.22/0.15 & \textcolor{red}{-0.34} & \textcolor{red}{-1.44}
+ & 63.31/0.18 & 82.34/0.10 & \textcolor{green}{+0.39} & \textcolor{green}{+2.93}
+ & 60.62/0.40 & 75.91/0.30 & \textcolor{red}{-30.87} & \textcolor{red}{-19.66} \\
+
+STS-VPR (CosPlace)
+ & 65.85/0.10 & 77.37/0.57 & \textcolor{green}{+33.14} & \textcolor{green}{+25.71}
+ & 22.53/0.66 & 44.16/5.78 & \textcolor{green}{+0.08} & \textcolor{red}{-9.17}
+ & 96.46/0.16 & 98.64/0.14 & \textcolor{red}{-0.17} & \textcolor{red}{-0.65}
+ & 45.20/0.06 & 67.26/0.24 & \textcolor{red}{-0.01} & \textcolor{green}{+6.52}
+ & 62.60/0.37 & 77.10/0.29 & \textcolor{red}{-28.35} & \textcolor{red}{-18.15} \\
+
+STS-VPR (EigenPlaces)
+ & 77.99/0.14 & 85.15/0.03 & \textcolor{green}{+25.64} & \textcolor{green}{+16.42}
+ & 43.66/1.11 & 67.37/2.54 & \textcolor{red}{-7.33} & \textcolor{red}{-7.84}
+ & 96.23/0.04 & 99.14/0.15 & \textcolor{red}{-0.07} & \textcolor{red}{-0.46}
+ & 46.77/0.32 & 68.56/0.21 & \textcolor{green}{+5.59} & \textcolor{green}{+3.94}
+ & 63.64/0.21 & 76.87/1.04 & \textcolor{red}{-28.88} & \textcolor{red}{-19.25} \\
+
+STS-VPR (ResNet)
+ & 80.54/0.04 & 86.41/0.34 & \textcolor{green}{+4.96} & \textcolor{green}{+0.29}
+ & 40.62/0.15 & 58.02/0.30 & \textcolor{red}{-0.16} & \textcolor{red}{-15.95}
+ & 95.77/0.09 & 97.85/0.04 & \textcolor{red}{-0.15} & \textcolor{red}{-1.62}
+ & 47.20/0.11 & 67.41/0.09 & \textcolor{green}{+1.83} & \textcolor{red}{-0.81}
+ & 61.48/0.38 & 76.67/0.44 & \textcolor{red}{-25.29} & \textcolor{red}{-16.34} \\
+
+\hline
+\end{tabular}
+}
+\end{subtable}

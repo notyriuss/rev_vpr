@@ -1,0 +1,118 @@
+\begin{subtable}{\linewidth}
+\centering
+\caption{Matching and total execution times (ms) for long sequences.
+The $\Delta$ columns indicate the temporal variation introduced by STS-VPR
+with respect to the corresponding baseline descriptor. Negative values denote
+a reduction in computational cost.}
+\label{tab:times_long}
+
+\resizebox{\linewidth}{!}{
+\begin{tabular}{lccccccccccccccccccccc}
+\hline
+ & \multicolumn{4}{c}{Robotcar (pair 1)} 
+ & \multicolumn{4}{c}{Robotcar (pair 2)} 
+ & \multicolumn{4}{c}{Robotcar (pair 3)} 
+ & \multicolumn{4}{c}{Nordland} 
+ & \multicolumn{4}{c}{Pitts30k} \\
+\cmidrule(lr){2-5}\cmidrule(lr){6-9}\cmidrule(lr){10-13}
+\cmidrule(lr){14-17}\cmidrule(lr){18-21}
+ & Match & Total & $\Delta$Match & $\Delta$Total
+ & Match & Total & $\Delta$Match & $\Delta$Total
+ & Match & Total & $\Delta$Match & $\Delta$Total
+ & Match & Total & $\Delta$Match & $\Delta$Total
+ & Match & Total & $\Delta$Match & $\Delta$Total \\
+\midrule
+SeqSLAM
+ & 2706.80 & 2925.60 &  & 
+ & 2837.71 & 3040.64 &  & 
+ & 2117.57 & 2319.39 &  & 
+ & 2654.53 & 2871.25 &  & 
+ & - & - &  &  \\
+
+ScMuSOM
+ & 9.13 & 13.69 &  & 
+ & 9.33 & 15.28 &  & 
+ & 9.53 & 15.40 &  & 
+ & 10.90 & 16.79 &  & 
+ & 2.23 & 5.42 &  &  \\
+
+MixVPR
+ & 37.52 & 42.85 &  & 
+ & 37.33 & 42.31 &  & 
+ & 37.88 & 43.60 &  & 
+ & 50.06 & 56.07 &  & 
+ & 7.07 & 10.88 &  &  \\
+
+Cosplace
+ & 19.78 & 26.12 &  & 
+ & 20.92 & 27.02 &  & 
+ & 25.38 & 31.48 &  & 
+ & 27.25 & 33.36 &  & 
+ & 3.23 & 11.79 &  &  \\
+
+Eigenplaces
+ & 19.08 & 25.76 &  & 
+ & 18.78 & 25.21 &  & 
+ & 18.84 & 25.09 &  & 
+ & 26.84 & 33.00 &  & 
+ & 3.32 & 11.80 &  &  \\
+
+ResNet
+ & 47.32 & 53.31 &  & 
+ & 47.42 & 53.09 &  & 
+ & 47.60 & 54.28 &  & 
+ & 81.09 & 87.04 &  & 
+ & 9.16 & 12.35 &  &  \\
+
+\midrule
+STS-VPR(MixVPR)
+ & 3.41 & 8.74
+ & \textcolor{green}{-34.11} & \textcolor{green}{-34.11}
+ & 3.01 & 7.99
+ & \textcolor{green}{-34.32} & \textcolor{green}{-34.32}
+ & 2.93 & 8.64
+ & \textcolor{green}{-34.95} & \textcolor{green}{-34.96}
+ & 19.91 & 25.93
+ & \textcolor{green}{-30.15} & \textcolor{green}{-30.14}
+ & 4.51 & 8.32
+ & \textcolor{green}{-2.56} & \textcolor{green}{-2.56} \\
+
+STS-VPR(Cosplace)
+ & 0.71 & 7.05
+ & \textcolor{green}{-19.07} & \textcolor{green}{-19.07}
+ & 0.56 & 6.67
+ & \textcolor{green}{-20.36} & \textcolor{green}{-20.35}
+ & 0.60 & 6.71
+ & \textcolor{green}{-24.78} & \textcolor{green}{-24.77}
+ & 12.50 & 18.60
+ & \textcolor{green}{-14.75} & \textcolor{green}{-14.76}
+ & 1.29 & 9.85
+ & \textcolor{green}{-1.94} & \textcolor{green}{-1.94} \\
+
+STS-VPR(Eigenplaces)
+ & 0.71 & 7.40
+ & \textcolor{green}{-18.37} & \textcolor{green}{-18.36}
+ & 0.56 & 7.01
+ & \textcolor{green}{-18.22} & \textcolor{green}{-18.20}
+ & 0.59 & 6.84
+ & \textcolor{green}{-18.25} & \textcolor{green}{-18.25}
+ & 11.31 & 17.47
+ & \textcolor{green}{-15.53} & \textcolor{green}{-15.53}
+ & 1.95 & 10.43
+ & \textcolor{green}{-1.37} & \textcolor{green}{-1.37} \\
+
+STS-VPR(ResNet)
+ & 6.92 & 12.92
+ & \textcolor{green}{-40.40} & \textcolor{green}{-40.39}
+ & 6.10 & 11.77
+ & \textcolor{green}{-41.32} & \textcolor{green}{-41.32}
+ & 6.27 & 12.96
+ & \textcolor{green}{-41.33} & \textcolor{green}{-41.32}
+ & 22.84 & 28.76
+ & \textcolor{green}{-58.25} & \textcolor{green}{-58.28}
+ & 16.09 & 19.28
+ & \textcolor{red}{+6.93} & \textcolor{red}{+6.93} \\
+\hline
+\end{tabular}
+}
+\end{subtable}

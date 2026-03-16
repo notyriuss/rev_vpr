@@ -1,0 +1,27 @@
+\begin{subtable}{\linewidth}
+\caption{Precision (Pr.), maximum F1 score (mF1), and improvements $\Delta$ over baseline descriptors for sequence pairs shorter than 10,000 images.}
+\label{tab:precision_mf1}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}{lccccccccccccccccccccc}
+\hline
+& \multicolumn{4}{c}{Robotcar} & \multicolumn{4}{c}{St. Lucia} & \multicolumn{4}{c}{Kitti} & \multicolumn{4}{c}{EuRoC} & \multicolumn{4}{c}{Synthia} \\ 
+\cmidrule(lr){2-5}\cmidrule(lr){6-9}\cmidrule(lr){10-13}\cmidrule(lr){14-17}\cmidrule(lr){18-21}
+& Pr. & mF1 & $\Delta$Pr. & $\Delta$mF1 & Pr. & mF1 & $\Delta$Pr. & $\Delta$mF1 & Pr. & mF1 & $\Delta$Pr. & $\Delta$mF1 & Pr. & mF1 & $\Delta$Pr. & $\Delta$mF1 & Pr. & mF1 & $\Delta$Pr. & $\Delta$mF1 \\ 
+\midrule
+MPF                     & 68.51 & 68.51 &  &  & 98.27 & 98.27 &  &  & 81.43 & 81.43 &  &  & 75.18 & 75.18 &  &  & 72.98 & 72.98 &  &  \\
+SeqSLAM                 & 20.54 & 20.54 &  &  & 43.52 & 73.18 &  &  & 73.46 & 73.46 &  &  & 15.41 & 15.41 &  &  & 41.59 & 41.59 &  &  \\
+ScMuSOM                 & 78.33 & 78.33 &  &  & 94.50 & 94.50 &  &  & 75.22 & 75.22 &  &  & 78.11 & 78.11 &  &  & 78.69 & 78.69 &  &  \\
+MixVPR                  & 96.88 & 96.88 &  &  & \textbf{99.67} & 99.67 &  &  & 83.98 & 83.98 &  &  & 84.11 & 84.11 &  &  & 89.08 & 89.08 &  &  \\
+CosPlace                & 36.54 & 36.54 &  &  & 99.20 & 99.20 &  &  & 83.98 & 83.98 &  &  & 67.72 & 67.72 &  &  & 92.12 & 92.12 &  &  \\
+EigenPlaces             & 61.02 & 61.02 &  &  & 99.72 & 99.72 &  &  & 86.58 & 86.58 &  &  & 85.93 & 83.94 &  &  & \textbf{98.87} & \textbf{98.87} &  &  \\
+ResNet                  & 93.27 & 93.27 &  &  & 98.28 & 98.28 &  &  & 76.19 & 76.19 &  &  & 78.15 & 78.15 &  &  & 83.78 & 83.78 &  &  \\
+\midrule
+STS-VPR(MixVPR)         & \textbf{99.41} & \textbf{99.68} & \textcolor{green}{+2.53} & \textcolor{green}{+2.80} & 99.50 & \textbf{99.74} & \textcolor{red}{-0.17} & \textcolor{green}{+0.07} & \textbf{94.51} & \textbf{100.00} & \textcolor{green}{+10.53} & \textcolor{green}{+16.02} & \textbf{89.57} & \textbf{94.36} & \textcolor{green}{+5.46} & \textcolor{green}{+10.25} & 87.50 & 94.13 & \textcolor{red}{-1.58} & \textcolor{green}{+5.05} \\
+STS-VPR(CosPlace)       & 52.44 & 68.76 & \textcolor{green}{+15.90} & \textcolor{green}{+32.22} & 99.30 & 99.66 & \textcolor{green}{+0.10} & \textcolor{green}{+0.46} & 93.96 & 99.42 & \textcolor{green}{+9.98} & \textcolor{green}{+15.44} & 74.83 & 88.58 & \textcolor{green}{+7.11} & \textcolor{green}{+20.86} & 85.59 & 92.67 & \textcolor{red}{-6.53} & \textcolor{green}{+0.55} \\
+STS-VPR(EigenPlaces)    & 89.17 & 94.27 & \textcolor{green}{+28.15} & \textcolor{green}{+33.25} & 99.42 & 99.70 & \textcolor{red}{-0.30} & \textcolor{red}{-0.02} & 93.96 & \textbf{100.00} & \textcolor{green}{+7.38} & \textcolor{green}{+13.42} & 86.09 & 92.60 & \textcolor{green}{+0.16} & \textcolor{green}{+8.66} & 91.10 & 95.28 & \textcolor{red}{-7.77} & \textcolor{red}{-3.59} \\
+STS-VPR(ResNet)         & 95.85 & 97.86 & \textcolor{green}{+2.58} & \textcolor{green}{+4.59} & 98.08 & 99.02 & \textcolor{red}{-0.20} & \textcolor{green}{+0.74} & 92.31 & 98.19 & \textcolor{green}{+16.12} & \textcolor{green}{+21.99} & 79.14 & 92.45 & \textcolor{green}{+0.99} & \textcolor{green}{+14.30} & 84.68 & 91.97 & \textcolor{green}{+0.90} & \textcolor{green}{+8.19} \\ 
+\hline
+\end{tabular}
+}
+\end{subtable}

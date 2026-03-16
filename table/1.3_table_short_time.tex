@@ -1,0 +1,125 @@
+\begin{subtable}{\linewidth}
+\centering
+\caption{Extraction and matching time per image (ms).
+The $\Delta$ columns indicate the temporal variation introduced by STS-VPR
+with respect to the corresponding baseline descriptor. Negative values denote
+a reduction in computational cost.}
+\label{tab:times}
+
+\resizebox{\linewidth}{!}{
+\begin{tabular}{lccccccccccccccccccccc}
+\hline
+ & \multicolumn{4}{c}{Robotcar} 
+ & \multicolumn{4}{c}{Lucia} 
+ & \multicolumn{4}{c}{Kitti} 
+ & \multicolumn{4}{c}{Euroc} 
+ & \multicolumn{4}{c}{Synthia} \\
+\cmidrule(lr){2-5}\cmidrule(lr){6-9}\cmidrule(lr){10-13}
+\cmidrule(lr){14-17}\cmidrule(lr){18-21}
+ & Match & Total & $\Delta$Match & $\Delta$Total
+ & Match & Total & $\Delta$Match & $\Delta$Total
+ & Match & Total & $\Delta$Match & $\Delta$Total
+ & Match & Total & $\Delta$Match & $\Delta$Total
+ & Match & Total & $\Delta$Match & $\Delta$Total \\
+\midrule
+MPF
+ & 16.00 & 22.95 &  & 
+ & 32.67 & 35.38 &  & 
+ & 27.74 & 31.47 &  & 
+ & 43.03 & 60.67 &  & 
+ & 11.81 & 41.31 &  &  \\
+
+SeqSLAM
+ & 10.56 & 10.56 &  & 
+ & 5.36 & 5.36 &  & 
+ & 35.04 & 35.04 &  & 
+ & 36.06 & 36.06 &  & 
+ & 28.02 & 28.02 &  &  \\
+
+ScMuSOM
+ & 0.27 & 5.12 &  & 
+ & 0.32 & 17.91 &  & 
+ & 0.14 & 0.43 &  & 
+ & 0.71 & 5.40 &  & 
+ & 0.42 & 5.31 &  &  \\
+
+MixVPR
+ & 0.98 & 6.72 &  & 
+ & 0.95 & 22.32 &  & 
+ & 0.96 & 1.39 &  & 
+ & 2.45 & 8.05 &  & 
+ & 0.78 & 6.97 &  &  \\
+
+Cosplace
+ & 0.35 & 6.53 &  & 
+ & 0.42 & 20.64 &  & 
+ & 0.41 & 0.87 &  & 
+ & 0.86 & 15.62 &  & 
+ & 0.28 & 37.42 &  &  \\
+
+Eigenplaces
+ & 0.34 & 6.53 &  & 
+ & 0.39 & 20.69 &  & 
+ & 0.40 & 0.82 &  & 
+ & 0.81 & 15.92 &  & 
+ & 0.27 & 37.42 &  &  \\
+
+ResNet
+ & 1.20 & 6.04 &  & 
+ & 1.21 & 18.80 &  & 
+ & 1.24 & 1.53 &  & 
+ & 3.00 & 7.68 &  & 
+ & 1.01 & 5.91 &  &  \\
+
+\midrule
+STS-VPR(MixVPR)
+ & 0.32 & 6.07
+ & \textcolor{green}{-0.66} & \textcolor{green}{-0.65}
+ & 0.29 & 21.66
+ & \textcolor{green}{-0.66} & \textcolor{green}{-0.66}
+ & 0.04 & 0.46
+ & \textcolor{green}{-0.92} & \textcolor{green}{-0.93}
+ & 0.33 & 5.93
+ & \textcolor{green}{-2.12} & \textcolor{green}{-2.12}
+ & 0.25 & 6.44
+ & \textcolor{green}{-0.53} & \textcolor{green}{-0.53} \\
+
+STS-VPR(Cosplace)
+ & 0.16 & 6.34
+ & \textcolor{green}{-0.19} & \textcolor{green}{-0.19}
+ & 0.15 & 20.38
+ & \textcolor{green}{-0.27} & \textcolor{green}{-0.26}
+ & 0.03 & 0.48
+ & \textcolor{green}{-0.38} & \textcolor{green}{-0.39}
+ & 0.17 & 14.93
+ & \textcolor{green}{-0.69} & \textcolor{green}{-0.69}
+ & 0.15 & 37.25
+ & \textcolor{green}{-0.13} & \textcolor{green}{-0.17} \\
+
+STS-VPR(Eigenplaces)
+ & 0.16 & 6.35
+ & \textcolor{green}{-0.18} & \textcolor{green}{-0.18}
+ & 0.16 & 20.46
+ & \textcolor{green}{-0.23} & \textcolor{green}{-0.23}
+ & 0.02 & 0.43
+ & \textcolor{green}{-0.38} & \textcolor{green}{-0.39}
+ & 0.17 & 15.26
+ & \textcolor{green}{-0.64} & \textcolor{green}{-0.66}
+ & 0.14 & 37.25
+ & \textcolor{green}{-0.13} & \textcolor{green}{-0.17} \\
+
+STS-VPR(ResNet)
+ & 0.48 & 5.32
+ & \textcolor{green}{-0.72} & \textcolor{green}{-0.72}
+ & 0.51 & 18.10
+ & \textcolor{green}{-0.70} & \textcolor{green}{-0.70}
+ & 0.04 & 0.35
+ & \textcolor{green}{-1.20} & \textcolor{green}{-1.18}
+ & 0.36 & 5.05
+ & \textcolor{green}{-2.64} & \textcolor{green}{-2.63}
+ & 0.28 & 5.18
+ & \textcolor{green}{-0.73} & \textcolor{green}{-0.73} \\
+\hline
+\end{tabular}
+}
+\end{subtable}

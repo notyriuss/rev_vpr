@@ -1,0 +1,459 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%2345678901234567890123456789012345678901234567890123456789012345678901234567890
+%        1         2         3         4         5         6         7         8
+
+\documentclass[letterpaper, 10 pt, conference]{ieeeconf}  % Comment this line out if you need a4paper
+
+%\documentclass[a4paper, 10pt, conference]{ieeeconf}      % Use this line for a4 paper
+
+\IEEEoverridecommandlockouts                              % This command is only needed if 
+                                                          % you want to use the \thanks command
+
+\overrideIEEEmargins                                      % Needed to meet printer requirements.
+
+\usepackage{acronym}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{subcaption}
+\usepackage{pifont}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+ \usepackage[margin=1.5cm]{geometry}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+\usepackage{xcolor}
+% glossary file
+\input{glossary}
+
+%In case you encounter the following error:
+%Error 1010 The PDF file may be corrupt (unable to open PDF file) OR
+%Error 1000 An error occurred while parsing a contents stream. Unable to analyze the PDF file.
+%This is a known problem with pdfLaTeX conversion filter. The file cannot be opened with acrobat reader
+%Please use one of the alternatives below to circumvent this error by uncommenting one or the other
+%\pdfobjcompresslevel=0
+%\pdfminorversion=4
+
+% See the \addtolength command later in the file to balance the column lengths
+% on the last page of the document
+
+% The following packages can be found on http:\\www.ctan.org
+%\usepackage{graphics} % for pdf, bitmapped graphics files
+%\usepackage{epsfig} % for postscript graphics files
+%\usepackage{mathptmx} % assumes new font selection scheme installed
+%\usepackage{times} % assumes new font selection scheme installed
+%\usepackage{amsmath} % assumes amsmath package installed
+%\usepackage{amssymb}  % assumes amsmath package installed
+
+
+
+\begin{document}
+\textbf{Resumo com os modelos de VPR mais recentes, organizados em estágio único e dois estágios.}
+
+\section{Conceitos preliminares}
+
+\subsection{\textit{Vision Transformers}}
+
+Grande parte dos modelos recentes em visão computacional são baseados em ViTs (\textit{Vision Transformers}). Esses modelos dividem a imagem em pequenos blocos chamados \textit{patches}. Cada \textit{patch} é então tratado como um \textit{token}, sendo o \textit{token} a unidade básica processada pelas camadas de atenção.
+
+A partir dessa representação, os ViTs utilizam mecanismos de atenção para modelar relações entre os diferentes \textit{tokens}. O mecanismo de atenção é definido pela equação,
+$$
+A(Q,K,V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d}}\right)V,
+$$
+\noindent
+em que $Q$ representa as \textit{queries}, $K$ as \textit{keys} e $V$ os \textit{values}. Cada \textit{token} gera seus próprios vetores de \textit{query}, \textit{key} e \textit{value}. Durante o cálculo da atenção, a \textit{query} de um \textit{token} é comparada com as \textit{keys} dos demais \textit{tokens}, produzindo pesos de similaridade. Esses pesos são então utilizados para ponderar os \textit{values}, que são organizados na matriz $V$, produzindo uma nova representação para cada \textit{token}.
+
+Esse mecanismo permite que as características não sejam processadas de forma isolada ao longo da rede. Em vez disso, cada \textit{token} pode incorporar informações provenientes de outros \textit{tokens}, permitindo que relações espaciais e semânticas sejam aprendidas durante o treinamento.
+
+As relações de atenção podem ser classificadas em diferentes tipos. No caso de \textit{self-attention}, cada \textit{token} é comparado com os demais \textit{tokens} da mesma imagem. Já na \textit{cross-attention}, os \textit{tokens} de uma sequência são comparados com os \textit{tokens} de outra sequência, permitindo modelar interações entre diferentes entradas.
+
+Além disso, os modelos frequentemente utilizam \textit{multi-head attention} (MHA), em que múltiplos mecanismos de atenção são calculados em paralelo. Cada \textit{head} aprende um tipo distinto de relação entre os \textit{tokens}, e os resultados são posteriormente concatenados para formar a representação final.
+
+Embora relações entre \textit{tokens} também pudessem ser modeladas utilizando redes MLP, isso exigiria um número significativamente maior de parâmetros. Além disso, no contexto de sequências — como sentenças de comprimentos variáveis ou imagens representadas por diferentes números de \textit{tokens} — uma abordagem baseada em MLPs exigiria entradas de dimensão fixa, o que limita sua flexibilidade em comparação com mecanismos de atenção.
+
+
+
+
+\subsection{Agregador}
+Algo que é muito usado nos modelos mais recentes de VPR são os agregadores, principalmente GeM e VLAD. Eles basicamente recebem as características das imagens e buscam transformar em vetores globais, GeM por meio de \textit{pooling} e VLAD por meio de agrupamento.
+
+
+
+\subsection{Conjunto de dados em VPR}
+Esta subseção é dedicada a apresentar uma breve descrição de todos os conjuntos de dados utilizados pelos modelos de VPR apresentados nesta revisão.
+
+
+O BaiduMall~\cite{baidu} é um conjunto de dados que visa salvar a \textit{pose} das câmeras em um sistema métrico 3D. Eles coletam dados de treinamento de ambientes indoor com cameras e um LiDAR. Além disso, coletam mais de 2000 imagens de busca em cameras de celular. Usando nuvem de pontos do LiDAR como referência, eles empregam uma abordagem semi-automática para estimar os 6 graus de liberdade das poses da camera precisamente.
+
+
+GardensPoint~\cite{garden} é um dataset pequeno e bastante utilizado em VPR para avaliar robustez a mudanças de iluminação e viewpoint. Ele foi coletado em um campus universitário na Austrália e contém três sequências de imagens obtidas ao longo do mesmo trajeto: durante o dia, à noite e caminhando no sentido oposto. As imagens são capturadas em sequência ao longo de um percurso.
+
+O dataset 17 Places~\cite{places} consiste em imagens de diferentes tipos de ambientes urbanos e internos. Ele contém imagens independentes, e não sequências temporais, sendo frequentemente utilizado para avaliar a capacidade de generalização de descritores globais em diferentes tipos de locais.
+
+
+Os datasets Pitts30k e Pitts250k são derivados do conjunto Pittsburgh~\cite{pitts} e foram construídos a partir de imagens do Google Street View. As imagens são coletadas em ambiente urbano e possuem correspondências obtidas via coordenadas GPS. Não são sequências contínuas de vídeo, mas sim imagens discretas associadas a localizações geográficas. Pitts30k é uma versão menor usada principalmente para treinamento e avaliação, enquanto Pitts250k é um conjunto significativamente maior.
+
+
+Nordland~\cite{nordland} é um dataset composto por vídeos gravados a partir de uma câmera montada em um trem que percorre a mesma rota na Noruega durante quatro estações do ano. As imagens são extraídas de sequências contínuas e apresentam grandes mudanças sazonais, incluindo neve, vegetação e iluminação distintas.
+
+
+O dataset St Lucia~\cite{st_lucia} foi coletado em áreas suburbanas da cidade de Brisbane, Austrália. As imagens foram capturadas por um veículo percorrendo ruas residenciais em diferentes horários do dia. O conjunto contém sequências de imagens associadas a trajetórias, permitindo avaliar robustez a mudanças de iluminação e tráfego.
+
+Oxford RobotCar~\cite{oxfordrobotcar} é um dataset urbano de larga escala coletado por um veículo autônomo na cidade de Oxford. As imagens foram adquiridas ao longo de mais de um ano, incluindo condições de dia, noite, chuva e neve. As capturas seguem trajetórias repetidas, o que possibilita avaliar métodos sob mudanças extremas de iluminação e clima.
+
+
+O dataset Hawkins~\cite{hawk} é um dataset em ambientes degradados com 30 cenas como corredores não estruturados, diferentes variações de iluminação, areia e fumaça, assim como dados coletados com camera \textit{fisheye}, LiDAR e IMU.
+
+SF-XL é um dataset urbano de larga escala coletado em São Francisco. Ele contém imagens de ruas obtidas a partir de serviços de mapeamento ou veículos equipados com câmeras. O dataset é projetado para avaliação em larga escala de sistemas de recuperação de lugares.
+
+MSLS (Mapillary Street-Level Sequences) é um dataset de larga escala composto por imagens coletadas pela plataforma Mapillary. Ele contém sequências de imagens capturadas em diversas cidades ao redor do mundo, com grande diversidade de ambientes urbanos e condições climáticas.
+
+
+Tokyo 24/7 é um dataset urbano coletado na cidade de Tóquio. Ele contém imagens capturadas em diferentes horários do dia, incluindo dia, entardecer e noite, permitindo avaliar robustez a mudanças de iluminação extrema.
+
+
+SVOX é um dataset voltado para avaliação de reconhecimento visual em ambientes urbanos. Ele contém imagens com variações de viewpoint e iluminação, frequentemente associadas a trajetórias de veículos.
+
+
+AmsterTime \cite{amstertime} é um dataset coletado na cidade de Amsterdã com foco em mudanças temporais.
+
+SF-VL é um dataset urbano coletado em São Francisco.
+
+\subsection{Métricas em VPR}
+
+As principal métrica utilizada em VPR é o Recall@N (R@N), que é definido como a porcentagem de consultas para as quais pelo menos uma das N imagens recuperadas é o resultado correto\cite{selavpr}. Ou seja, sendo uma generalização da precisão, já que R@1, por meio dessa definição, seria a porcentagem de consultas para qual a imagem recuperada é correta.
+
+Outras métricas como \textit{F1-score} e \textit{precision-recall} caíram em desuso, sendo usado em alguns poucos casos a AUPRC (\textit{Area Under Precision-Recall Curve}). Quanto ao tempo, muitos trabalhos não apresentam comparações de tempo computacional, mas quando apresentam, geralmente é o tempo de consulta (latência) e o tempo total de treinamento.
+
+
+\section{VPR}
+
+Esta seção apresenta os diferentes modelos de VPR, organizados em duas categorias principais: estágio único e dois estágios. A distinção entre essas categorias é baseada na estrutura do processo de correspondência, onde os modelos de estágio único realizam a correspondência diretamente a partir das características extraídas, enquanto os modelos de dois estágios envolvem uma etapa adicional de refinamento.
+
+Como os modelos não apresentam conexão direta entre si, eles são apresentados de forma independente, sem uma comparação direta entre eles.
+
+\subsection{Design space exploration of low-bit quantized neural networks for VPR}
+\cite{low-bit} é o único método que não se encaixa nas categorias de estágio único ou dois estágios, pois eles focam na redução de latência e consumo de memória no problema de VPR. Neste trabalho é dado o exemplo do Anyloc, que precisa de 4.3GB de memória somente para o uso do modelo, se tornando difícil o usar em modelos embarcados em drones e UGVs pequenos, sendo sua principal contribuição a quantização da rede com o foco em eficiência.
+
+Neste trebalho, vários \texit{backbones} diferentes são testados, incluindo Dinov2, VGG-16 e ResNET. Para agregação, são testados SPoC, MAC, GeM, NetVLAD e MixVPR. 
+
+Neste contexto, eles performam uma quantização pós-treino, usando uma amostragem de dados para reduzir memória, consumo de energia e minimizar latência. Eles testam estratégias de quantização por canal e quantização por ativações (para floats 16 ou inteiros). Posteriormente avaliando as diferentes configurações. Eles falam quais configurações foram mais robustas à quantização.
+
+Eles também chegam a usar GA para realizar uma busca de qual seria a melhor quantização. Para determinar a configuração de quantização de precisão mista mais eficiente, foi definida uma função objetivo que busca minimizar a diferença entre os descritores produzidos pelo modelo em precisão total e aqueles produzidos pelo modelo quantizado. Seja $M$ o modelo em precisão total e $Q$ o modelo quantizado sob uma configuração de precisões por camada $I = \{I_1, I_2, \dots, I_T\}$, onde $I_i$ representa a largura de bits atribuída à $i$-ésima camada. Dado um conjunto de amostras $x$, a função de otimização maximiza
+$$
+f(I) = -\frac{1}{L}\sum_{i=0}^{L}\left(Q(I; x_i) - M(x_i)\right)^2
+$$
+ou seja, o negativo do erro quadrático médio entre os descritores gerados pelos dois modelos. Essa maximização é realizada sob a restrição de orçamento de largura média de bits
+$$
+B \ge \frac{1}{T}\sum_{i=0}^{T} I_i ,
+$$
+onde $B$ representa o limite máximo permitido para a média de bits por camada e $T$ o número total de camadas da rede. Dessa forma, o processo de busca procura configurações de quantização que preservem a similaridade entre os descritores enquanto respeitam um orçamento de precisão que controla o compromisso entre eficiência computacional e desempenho do modelo.
+
+O modelo que eles usam é treinano no GSV-Cities. Já para os testes, os conjuntos de dados utilizados foram Pitts30k, MSLS e Nordland. As métricas usadas foram R@N, assim como latência e memória.
+
+\subsection{Estágio único}
+
+\subsubsection{Anyloc}
+
+Anyloc~\cite{anyloc} foi o mais antigo entre os modelos de estágio único descritos nesta revisão. A motivação deles gira em torno da pergunta "Como é possível projetar uma solução de VPR universal?". Para atingir seu objetivo, eles usam DINOv2 como \textit{backbone} e realizam experimentos em diferentes estruturas de camadas. Através da análise de \textit{heatmaps} gerados nas camadas da rede, eles demonstram que as características extraídas possuem forte correspondência semântica com regiões da imagem, motivando o uso de tokens como descritores locais (o que eles chamam de \textit{per-pixel}).
+
+Dada uma imagem de dimensão $H \times W$, a rede produz um mapa de características onde cada posição espacial $i$ é representada por um vetor $f_i \in \mathbb{R}^D$. Para obter um descritor global da imagem, os autores investigam diferentes estratégias de agregação dessas características locais, incluindo Global Average Pooling (GAP), Global Max Pooling (GMP), Generalized Mean Pooling (GeM) e VLAD.
+
+No caso do GeM, o descritor global é calculado como
+
+\[
+F_G = \left( \sum_{i=1}^{H \times W} f_i^p \right)^{\frac{1}{p}},
+\]
+
+onde o parâmetro $p$ controla o comportamento da agregação. Casos particulares dessa formulação incluem $p=1$, que corresponde ao Global Average Pooling (GAP), e $p \rightarrow \infty$, que aproxima o Global Max Pooling (GMP). Valores intermediários de $p$ permitem ajustar o grau de seletividade da agregação, possibilitando um compromisso entre média e máximo. Nos experimentos apresentados no artigo, o GeM apresentou desempenho superior entre os métodos avaliados.
+
+Os autores também exploram uma variante baseada em VLAD para agregação das características locais. Nesse caso, as características extraídas pela rede são inicialmente agregadas utilizando GeM e posteriormente projetadas em um espaço de menor dimensionalidade por meio de PCA. Essa projeção tem como objetivo melhorar a separabilidade entre características provenientes de diferentes regiões da imagem. As representações transformadas pelo PCA são então utilizadas para definir os centros de cluster que compõem o vocabulário visual empregado pelo VLAD, permitindo uma agregação mais estruturada das características locais.
+
+
+Para seus experimentos, eles usam uma Nvidia RTX 3090 e os conjuntos de dados estruturados BaiduMall, Gardens Point, 17 Places, Pitts30k, St Lucia e Oxford Robotcar, assim como não estruturados, Hawkins, Laurel Caverns, Nardo-Air, VP-Air e Mid-Atlantic. Eles se comparam com NetVLAD, CosPlace, MixVPR, CLIP, assim como os modelos base DINO e DINOv2. As variações de seu método ganham na maioria dos casos, com Pitts30k e St Lucia sendo exceções. Mais especificamente, ANyloc-vlad-dinov2-PCA e ANyloc-vlad-dinov2 são competitivos entre si, ficando na frente em termos de desempenho em comparação aos outros. Eles usam R@N para as comparações, não realizando comparações em termos de tempo computacional.
+
+
+\subsubsection{BoQ}
+
+Outro modelo de estágio único é o \cite{boq}, o qual busca reduzir a diferença de desempenho entro o VPR de estágio-único e de dois estágios. Neste modelo, dada uma imagem de dimensões $3\times H\times W$, ela é processada por um \texit{backbone} que produz um conjunto de ($N$) características de dimensão ($d$). Essas características são então passadas por uma sequência de \textit{transformer encoders} intercalados com blocos BoQ (Bag-of-Queries).
+
+Cada bloco BoQ contém um conjunto de ($M$) \textit{queries} treináveis. Inicialmente, aplica-se \textit{self-attention} entre as \textit{queries}, permitindo a troca de informação entre elas:
+
+$$
+Q_i = \text{MHA}(Q_i, Q_i, Q_i) + Q_i$$
+
+Em seguida, ocorre \textit{cross-attention} entre as \textit{queries} e as \textit{features} de entrada ($X_i$), permitindo que cada \textit{query} avalie dinamicamente a relevância das \textit{features} e agregue essa informação em sua saída:
+
+$$
+O_i = \text{MHA}(Q_i, X_i, X_i)
+$$
+
+As saídas de todos os blocos são concatenadas:
+
+ $$
+ O = \text{Concat}(O_1, O_2, \dots, O_L)
+ $$
+
+ Em seguida, projeções lineares ($W_1$) e ($W_2$) reduzem a dimensionalidade do descritor global:
+
+ $$
+ \text{Output} = W_2\big(W_1 O\big)^T
+ $$
+
+Por fim, aplica-se normalização ($L_2$), devido à busca por similaridade (distância dos cossenos). Diferentemente do DETR (um modelo similar anterior), as \textit{queries} não compõem diretamente a saída, sendo usadas apenas para agregação de características. Em contraste com NetVLAD, o BoQ aprende a ponderar dinamicamente a relevância das características, em vez de agregá-las em \textit{clusters} fixos.
+
+Os experimentos deste modelo são realizados no MSLS, Pitts250k, Pitts30k AMsterTime, Eynsham, Nordland, St-Lucia, SVOX e SPED. Além disso, eles usam ResNet-50 como \texit{backbone} e treinam no GSV-Cities, assim como é comparado contra GeM, AVG, NetVLAD, SPE-NetVLAD, Gated NetVLAD, MixVPR, COnv-AP, EigenPlaces e Cosplace. Resultados de tempo computacional não são mostrados, mas este modelo foi melhor em quase todos os casos, sendo somente pior em R@5 no MSLS.
+
+
+\subsubsection{Close, But Not There}
+Sob o argumento de que o custo computacional dos métodos de dois estágios são proibitivos, assim como mesmo o desempenho de métodos envolvendo um único estágio já superarem métodos de dois estágios, \citeauthor{close}~\cite{close} propõem uma nova estratégia de treinamento baseada na análise do GDS (\textit{Global Distance Sensitivity}). um método comparativo entre distância geográfica com a  distância do espaço de aparências.
+
+
+Eles criam um grafo de imagens candidatas, escolhendo os pares mais desafiadores. Para todas as imagens, $S$ imagens mais similares são escolhidas e, caso sua distância em metros for menor que um limiar, elas são conectadas por arestas. Eles definem $clique$ como um subconjunto de vértices de $K$ imagens dentro de uma distância $\tau$, e usam esse $clique$ para cada $batch$ de treinamento.
+
+Para os experimentos, eles criam uma coleçaõ de 4000 $\batches$ para o treinamento e, aleatoriamente, para cada iteração escolhem um deles, usando todas as imagens não apnorâmicas do conjunto de treinamento do MSLS. Por fim, comparam a rede resultante com o NetVLAD, GeM, Cosplace, MixVPR, Eigenplaves, SelaVPR e DINOv2 SALAD. Para os testes, os conjuntos escolhidos são Nordland, MSLS e Pitts250k.
+
+\subsubsection{CricaVPR}
+
+Em \cite{crica}, os autores argumentam que enquanto features globais tem um problema de desempenho, métodos de dois estágios tem um problema de custo computacional e que um problema conceitual ignorado é que geralmente somente a imagem atual é considerada, ignorando como as imagens se relacionam entre si. Além disso, modelos base geralmente tem problema na diferenciação do fundo da imagem com objetos dinêmicos e a utilização de fine-tuning para considerar esses casos pode levar a esquecimento catastrófico. Sendo assim, eles propõem um método chamado de \textit{Cross-image correlation-aware representation for VPR} (CricaVPR), o qual usa um mecanismo de atenção para modelar a correlação entre representações de múltiplas imagens em um mesmo \textit{batch}. Além disso, adaptam o modelo pré-treinado com adaptadores convolucionais multi-escaláveis.
+
+Antes de entrar na rede, a imagem é dividida em (N) \texit{patches} de dimensão (D). A arquitetura segue em grande parte o SelaVPR, com a diferença de que utiliza apenas um adaptador paralelo à MLP.
+
+A principal proposta do método é correlacionar as representações das imagens dentro de um mesmo \textit{batch}. Assim, cada representação pode incorporar informações de outras imagens, aumentando sua robustez.
+
+Para isso, aplica-se uma \textit{spatial pyramid} em cada imagem do \textit{batch}, dividindo-a em 14 regiões. Cada região é representada por um vetor (f_i). Em seguida, os vetores de todas as regiões de todas as imagens do \textit{batch} são processados por um transformer, permitindo modelar relações entre regiões pertencentes a imagens diferentes.
+
+Por fim, as saídas dos transformers são concatenadas e projetadas em uma única \textit{feature} global. Durante o treinamento, o método também realiza \textit{hard pair mining}, selecionando apenas os pares mais difíceis (positivos pouco similares ou negativos muito similares).
+
+Esse modelo é treinado no GSV-Cities usando perda de multi-similaridade, sendo Pitts30k, MSLS, Tokyo24/7, Nordland, SVOX e AmsterTime os conjuntos de dados utilizados. Além disso, foram usadas múltiplas gpus para o treinamento. 
+
+O resultado foi melhor em todos os casos, usando R@N como métrica, mostrando maior impacto com a introdução do adaptador multiconvolucional, mas sem comparações de tempo computacional.
+
+\cite{DinoMix}
+
+Neste trabalho \cite{dino}, a principal contribuição se encontra na proposição de um \textit{framework} o qual combina um modelo de base com um módulo de mistura.
+
+Para isso, eles removem a camada de normalização e a camada final do DINOv2, usando a saída do bloco do $transformer$ como input do módulo de mistura. De forma sucinta, sua arquitetura é exatamente como o MixVPR, com um \textit{backbone} diferente. A diferenciação se dá devido ao treinamento, pois neste caso os pesos do DINOv2 são congelados, enquanto nenhum congelamento do \textit{backbone} é mencionado no MixVPR.
+
+Este modelo foi treinado no GSV-Cities, sendo avaliado no Pitts250k, Pitts30k, SF-VL, Tokyo24/7 e Nordland, sendo realizado por meio de duas RTX 4090.  O modelo é comparado com NetVLAD, GeM, ConvAP, CosPlace e MixVPR, sendo melhro em todos os casos, embora se compare com o MixVPR utilizando ResNet50 como \textit{backbone}. 
+
+
+\subsection{Optimal Transport Aggregation for VPR}
+
+\cite{optimaltrans} introduz o modelo SALAD, o qual reformula o agrupamento realizado pelo NetVLAD em um problema de transporte ótimo. Também fazendo fine-tune no DINOv2 ao invés de somente usar a rede pré-treinada.
+
+Eles ajustam (\textit{fine-tune}) apenas os últimos blocos do encoder, relatando melhorias de desempenho. 
+
+Quanto ao \textit{assignment} das features aos clusters, o método se inspira no NetVLAD, porém com algumas diferenças. Em vez de utilizar diretamente uma matriz de \textit{scores} aprendida na última camada da rede, como no NetVLAD, eles empregam uma pequena rede composta por duas camadas totalmente conectadas para produzir os \textit{scores} de associação entre as features e os clusters.
+
+Além disso, é introduzido um vetor adicional (\textit{dustbin}) responsável por receber características consideradas pouco informativas, como regiões de céu, evitando que essas features sejam agregadas aos clusters relevantes.
+
+Para normalizar a matriz de \textit{scores}, eles utilizam o algoritmo Sinkhorn, produzindo uma atribuição balanceada entre features e clusters. Diferentemente do NetVLAD, todos os clusters recebem massa normalizada igual a 1, enquanto o \textit{dustbin} recebe \(n-k\), representando o excesso de features em relação ao número de clusters.
+
+Na etapa de agregação, o NetVLAD combina todas as características associadas a cada cluster para formar os descritores finais. Já no SALAD, a dimensionalidade das características atribuídas a cada cluster é primeiro reduzida. Em seguida, a matriz de \textit{scores} é usada diretamente para ponderar e somar essas características, resultando em uma matriz de centroides de dimensão \(k \times l\), onde \(k\) é o número de clusters e \(l\) a dimensão reduzida.
+
+Por fim, também é considerado um vetor global \(g\), obtido a partir do token \(t_{n+1}\), que captura informação global da imagem e é combinado com a representação agregada.
+
+O treinamento é realizado no GSV-Cities, durando 30 minutos em uma RTX 3090. Ele é validade no Pitts30k. Os testes foram feitos no MSLS, Nordland, Pitts250k e SPED. As comparações foram realizadas contra o GeM, MixVPR, NetVLAD com o DinoV2 como backbone.
+
+Ele executa um query com uma latencia da ordem de milisegundos (para uma 3090), também sendo melhor do que os outros modelos de maneira geral no NORDLAND e SPED. Perde algumas vezes no MSLS para o NetVLAD (contudo o tamanho do descritor utilizado para o NetVLAD foi muito alto).
+
+\subsection{SuperVlad}
+
+\cite{supervlad} modifica a camada de agregação do NetVLAD, desconsiderando o cálculo dos centroides durante o treinamento, de forma a focar na diminuição dos parâmetros, também usando um pequeno número de clusters para gerar descritores compactos. Com a remoção dos centroides, a equação fica,
+
+$$
+V_{k,j} = \sum_{i=1}^{N} a_k(x_i) x_{i,j}
+$$
+
+Além disso, como em outros modelos eles usam \textit{multi-similarity loss} para o treinamento, também introduzindo uma estrutura com 1 cluster e ghosts clusters para eliminar características não desejadas.
+
+Os conjuntos de dados usados foram Pitts30k, MSLS, Nordland e SPED. A comparação foi feita com NetVLAD, SFRS, TransVPR, Cosplace, MixVPR, EigenPlaces, SelaVPR, CricaVPR, SALAD, SuperVLAD. Ele foi melhor em todos os casos. Além disso o superVLAD com 1 \textit{cluster} tem somente 768 dimensões, mas ele não mostra resultados de tempo computacional.
+
+\subsection{IMVPR}
+
+\cite{imvpr} aborda o problema de VPR em cenários de múltiplas câmeras, criando um framework para fundir características de múltiplas câmeras para o VPR. Eles tem um modelo flexível para recer N imagens de diferentes fontes, agregando-as em suas características por meio de \textit{cross-atention}, com uma estrutura similar a do BoQ\cite{boq}.
+
+Eles treinam 30 épocas em uma gpu A6000. Suas avaliações são feitas no Nuscenes, sendo comparado com NetVLAD, MixVPR, BoQ, LCPR-I, AdaFusion e LCPR. Ele é superior em todos os casos no Nuscenes. Em um subconjunto de 1000 imagens do Nuscenes ele consegue um tempo total de 41,24ms (lento em comparação com outros modelos recentes e pela quantidade de imagens).
+
+\subsection{StructVPR++}
+Em trabalhos anteriores, \cite{structvpr++} verificaram que imagens segmentadas poderiam dar pistas estruturais para o VPR. COntudo, para diferentes pontos de vista, estruturas semânticas sofrem impactos negativos quanto ao desempenho. 
+
+Eles melhoram o desempenho do VPR ao tranferir conehcimento estrutural obtido de imagens de segmentação para o modelo RGB por meio de \textit{knowledge distillation} ponderada. O método é treinado em duas etapas: primeiro, dois ramos independentes (RGB e segmentação) aprendem representações globais da cena, com o ramo de segmentação extraindo também características semânticas dos rótulos que são combinadas às características globais. Em seguida, o conjunto de treinamento é particionado conforme o desempenho relativo desses dois ramos, permitindo identificar amostras mais informativas para transferência de conhecimento. Na segunda etapa, um modelo RGB aprende a aproximar as representações estruturais do modelo de segmentação, em que a função de peso $\phi(q,p)$ prioriza amostras em que o modelo de segmentação possui vantagem sobre o RGB. O treinamento final combina a perda de VPR com a perda de \textit{distillation} $L(q,p,n)=L*{vpr}(g_R)+\sum_{I\in{q,p,n}}L_{kd}(I)$, permitindo obter um modelo RGB único que incorpora conhecimento estrutural sem necessidade de segmentação durante a inferência.
+
+Ele é comparado com os seguintes métodos de estágio único: NetVLAD, SFRS, DELG, Patch-NetVLAD-s, Patch-Netvlad-p, TransVPR, R2Former e structvpr. Ademais, uma versão de seu modelo com SuperGlue é comparada com SP-SuperGlue, DELG, Patch-NetVLAD-s, Patch-Netvlad-p, transVPR e StructVPR-SuperGlue. Os conjuntos de dados utilizados para essas comparações foram MSLS, Nordland e Pitts 250k.
+
+Ele foi melhro em todos os casos para as comaprações de estágio único. Já para as comparações de dois estágios, ele foi melhor no Nordland e segundo melhor em todos os outros casos. Além disso, Ele apresenta uma latência de 3.5ms para extração e 3.9ms para \textit{matching}, utilizando uma RTX 3090 e um intel xeon gold 6226r.
+
+\subsection{TetraVPR}
+\cite{tetravpr} fala sobre a quantização e métoos de podagem, assim como \textit{distillation}, que compreende entre teacher (rede pesada) e learner (rede mais leve). Nele é proposto TeTRA (Ternary Transformer), um método de compressão de modelos que utiliza representações ternárias de baixa precisão para reduzir o tamanho da rede e acelerar a inferência.
+
+A principal ideia é aplicar um pipeline de distillation progressiva, no qual o modelo passa gradualmente de alta precisão para representações de baixa precisão, evitando grandes perdas de desempenho.
+
+Com isso, o método busca obter modelos compactos e eficientes, mantendo uma boa performance em tarefas de VPR.
+
+
+O treinamento foi realizado no GSV-Cities com o \textit{backbone} congelado. Modelos de agregação como MixVPR, SALAD E BoQ são treinados em cima desses \textit{backbones}. Para o treinamento, foram usadas 4 gpus H100. Os testes foram realizados no MSLS, Pitts30k, TOkyo24/7 e SVOX. As comparaçõs foram realizadas contra SALAD, BoQ, eigenplaces, cosplace, FloppyNet, NetVLADSP, SALAD em diferentes backbones quantizado.  Esses modelos foram comparados com TeTRA com BoQ SALAD e MixVPR.
+
+Suas configurações não mostram maior R@1, mas mostram maior R@1/MB.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Dois estágios}
+
+\subsubsection{SelaVPR}
+
+Modelos base tem a habilidade de generalizar bem diferentes representações de forma robusta. Contudo, a representação produzida da imagem é sucetível a objetos dinêmicos, podendo ignorar o pano de fundo estático e discriminativo. Contudo, tentar aprender em um conjunto de dados posterior, pode introduzir "esquecimento catastrófico". Portanto, \cite{selavpr} propõem criar uma rede híbrida com características locais e globais, focando am \textit{landmarks} discriminativos e ignorando regiões irrelevantes, sendo a discriminação introduzida pelo viés dos conjuntos de dados utilizados no treinamento. Além disso, eles também propõem função de perda especificamente para a adaptação local, a qual é combinada com a perda global para o \texit{fine-tuning}.
+
+A imagem é dividida em N patches de dimensão D $x_p \in R^{N \times D}$, sendo acrescentado posteriormente um token aprendível $x_class$ de forma que $x_0 = [x_{class}; x_p] \in R^{(N+1) \times D}$. Depois é adicionado ao $x_0$ uma codificação posicional - um vetor indicando a posição de cada patch na imagem. Então o vetor representativo da imagem passa primeiramente por varios blocos de tranformers (compostos sucessivamente por camada de normalização -> MHA -> camaad de normalização -> MLP). 
+
+A contribuição o modelo é a adição de adaptadores no meio da arquitetura desses blocos. Por fim, usa Gem para juntar as características de cada patch, formando o vetor de caracteríticas global (usado para recuperação).
+
+Já para a adaptação local são usadas camadas up-convs. 
+
+O matching global é dado normalmente pela distância dos cossenos. O matching local é dado por,
+$$
+s_{qc}(i, j) = f_q^{l}(i) \cdot f_c^{l}(j), 
+\quad i,j \in \{1,2,\dots,N'\}, \quad (N' = 61 \times 61)
+$$
+
+com,
+$$
+M = \{(u,v) : 
+u = \arg\max_i s_{qc}(i,v), \;
+v = \arg\max_j s_{qc}(u,j)
+$$
+
+que é basicamente a u-th feature da imagem q com a v-th feature da imagem c dando matching uma com a outra. Trabalhos anteriores aplicaram ransac para remover outliers e usaram inliers para o image similarity score, o que toma muito tempo, mas com a estrutura desse modelo, isso não foi necessário. 
+
+Para função de perda, eles usam para a perda global:
+$$
+L_g =
+\sum_j
+l\big(
+\|f_q^g - f_p^g\|
++ m
+- \|f_q^g - f_{n_j}^g\|
+\big)
+
+$$
+com,
+$l(x) = \max(x,0)$ e $f_q^g$, $f_p^g$, $f_{n_j}^g$ sendo características globais do query, assim como amostras positivas e muito negativas, respectivamente.
+
+Já para a perda local eles usam: 
+$$
+L_l =
+\sum_j
+l\left(
+-
+\frac{
+\sum_{(u,v)\in M} s_{qp}(u,v)
+}{|M|}
++
+\frac{
+\sum_{(u',v')\in M'} s_{q n_j}(u',v')
+}{|M'|}
+\right)
+$$
+
+
+Por fim, ambas as funções de perda são combinadas por, 
+$L = L_g + \lambda L_l$.
+
+
+Eles usam para avaliação os conjuntos Tokyo24/7, Pitts30k e MSLS, todos de imagens individuais. Como todos estes conjuntos também são divididos entre treinamento e teste, eles fizeram o treinamento nos próprios subconjuntos de treino para avaliação posterior. 
+
+Ele foi comparado contra modelos de estágio único, como NetVLAP, SFRS, CosPlace e MixVPR, assim como modelos de dois estágios, como SP-SuperGlue, Patch-NetVLAD, TransVPR, StructVPR e R2FORMER, sendo competitivo e, ao mesmo tempo, muito mais rápido que os modelos anteriores. 
+
+\subsection{\texit{Deep Homography estimation}}
+
+
+Em \cite{homography} também se trata do alto custo computacional devido ao re-ranqueamento, citando trabalhos anteriores de estimação de homografia baseada em aprendizagem profunda como sendo soluções mais viáveis. Contudo, como os métodos citados consideram imagens em cenários planares, eles propõem um DHE (\textit{Deep Homography Estimation}) baseado em \textit{transformers}. Com isso, além do descritor global, eles estimam a matriz de homografia.
+
+Para o modelo o CCT é usado como \textit{backbone}, sendo a saída um tensor $M times C$, com $M$ sendo o número de \textit{patches} e $C$ o número de canais, os quais podem ser redimensionados para $W \times H \times C$. Posteriormente GeM é usada para agregação. Já sua rede DHE tem os feature maps como entrada tanto do query quanto das imagens candidtas, sendo usado para estimação da homografia, sendo o número dos inliers usado como métrica de similaridade dos pares das imagens para re-rank. 
+
+Para a rede DHE, os feature maps do query e das imagens candidatos são usadas como entrada. A rede consiste de dois módulos, similarity matching module e homography regression module.  O SMM usa a similaridade dos cossenos para computar um mapa de similaridade MxM, entre as características locais do query e candidatos. Ao invés de tentar estimar a matriz de homografia, a similaridade entre quatro pontos é que é estimada por: 
+
+
+$$
+\text{TransE}(s_{qc} + E_{\text{pos}}) = [p_{q1}, \dots, p_{q4} \mid p_{c1}, \dots, p_{c4}] = [P_q, P_c],
+$$
+
+sendo os 4 primeiros pontos do query os 4 primeiros elementos e os mesmos 4 pontos no candidato, os 4 últimos pontos. Depois é usado Direct Linear Transform para gerar a matriz de homografia entre as duas imagens: 
+$$
+H_{qc} = \text{DLT}(P_q, P_c),
+$$
+
+Já para o reranking, cada feature é combinada par a par e são escolhidos os pares de maior similaridade dentro da imagem. Posteriormente, a imagem de query é reprojetada com $H_{qc}$ e os \textit{inliers} são dados por,
+
+$$
+\|C(p_c) - C(H_{qc} p_q)\| \leq \theta,
+$$
+em que $C(\cdot)$ converte coordenadas homogêneas para cartesianadas.
+
+
+Para o treinamento, o backbone e a rede DHE são primeiramente inicializados separadamente. O backbone é treinado com uma triplet-based global feature loss:
+
+$$
+L_g = \sum_j \max(0, d_G(q, p_q) + m - d_G(q, n_q^j)),
+$$
+em que $d_G$ é a distância L2 entre as características globais e $m$ é uma margem. A rede DHE é treinada usando **Re-projection Error of Inliers (REI) loss**:  
+
+$$
+L_r = \frac{1}{N} \sum_{(\hat{p}_c, \hat{p}_q) \in \text{IN}} \|C(\hat{p}_c) - C(H_{qc} \hat{p}_q)\|.
+$$
+Finalmente, ambas as redes são sintonizadas usando,
+$$
+L = L_g + \lambda L_r,
+$$
+em que $\lambda$ balanceia a supervisão global e local, sendo somente as últimas camados do backbone atualizadas durante a sintonização.
+
+
+Os experimentos foram realizados no MSLS, Pitts30k, Nordland e St. Lucia. Uma RTX 3090 foi utilizada para todos os experimentos. Para a sintonização, somente a rede DHE e as duas últimas camadas do \textit{backbone} são atualizadas. O modelo foi comparado contra NetVLAP, SFRS, CosPlace, GeM*, SP-SuperGlue, Patch-NetVLAP-s, Patch-NetVLAP-p, TransVPR e ETR-D.
+
+O modelo se apresentou ser melhor em quase todos os casos, sendo segundo melhor somente no MSLS. Seu tempo de computação total também é muito menor do que os outros modelos de comparação, sendo em torno de 100ms por \textit{query} no Pitts30k.
+
+
+\subsection{SelaVPR++}
+\cite{selavpr++} é uma modificação do SelaVPR focando no uso de memória da GPU e no tempo de treinamento, tempo de re-ranqueamento e armazenamento necessário para as características locais. A modificação é nos adaptadores, utilizando MultiConv, baseado em \cite{CricaVPR}. As características são de baixa dimensão e binárias para retrieval e float de alta dimensionalidade para re-ranking.Eles criam uma nova loss devido ao uso das características binárias.Treina em GSV-Cities, SF-XL, Pitts30k, MSLS juntamente para treinar o modelo (diferentemente de como eles fizeram anteriormente). Usa características globais para ambos os estados, binário para matching e float para re-ranking.
+
+
+Eles usam características binárias para o \textit{matching}, o qual é performado por \textit{hashing}, assim como características globais em ponto flutuante para o reranqueamento. Eles alteram a estrutura dos adaptadores de forma a deixar o treinamento muito mais rápido e consumindo muito menos memória, devido ao \textit{backpropagation} não considerar o \textit{backbone}.
+
+MSLS, Pitts30k, GSV-Cities, SF-XL são usados para o treino. Já a comparação é realizada com o NetVLAP, SFRS, Cosplace, MixVPR, Eigenplaces, CricaVPR, SALAD, SALAD-CM e BoQ. Assim como métodos com two-stage como  Patch-NetVLAP, TransVPR e SelaVPR.
+
+Dos resultados, pode-se concluir que usar somente floats para as características seria melhor, contudo consumiria muito mais tempo, sendo a maior contribuição das features binárias o tempo consumido para retrieval. Parte da melhora vem também da combinação de múltiplos datasets para treinamento
+
+
+\subsection{To Match or Not to Match}
+\cite{matchnotmatch} busca uma forma de saber quando usar reranking é bom ou não, buscando saber quando metodos que usam re-ranking são relevantes e usando inliers como indicador indireto da incerteza da predição, fornecendo uma indicação para etapa de re-ranqueamento.
+
+Seleciona diversos modelos para comparação, como: R2D2, D2Net, SuperGlue, LoFTR, Patch2Pix, Matchformer, perPoint+LightGLue, DISK+LightGlue, ALIKED+LightGLue, RoMa e Tiny-RoMam, Steerers, Affine Steeres, DUSt3R, MASt3r, xFeat, GIM-DKMv3 e GIM-LightGlue. Dessas comparações chega À conclusão de que quando R@1 é próximo de 100\%, é difícil de melhorar a partir daí. Contudo, isso não é uma medida disponível na realidade, então eles buscam verificar que apllicar reranking em queries de alta incerteza provocaria uma melhora no desempenho. 
+
+Para métricas de incerteza, eles usam PA-score (perceptual aliasing score) $u_q = \frac{d(1)}{d(2)}$, comparando a distancia do mais próximo com a do segundo mais próximo. Assim como usam, SUE, o qual considera a dispersão geográfica dos candidatos pré-selecionados escolhidos por MegaLoc. Eles também introduzem um "Random baseline", em que scores de incerteza são amostrados usando uma distribuição uniforme. Eles também usam o número de inliers como base para uma métrica de incerteza, com $u_q = -i_q(1)$ com menos inliers indicando maior incerteza. 
+
+Eles comparam metodos de reranking com reranking usando metricas de incertezas para chegar ao resultado deles.
+
+Os datasets usados foram Baidu, MSLS, Pitts30k, SF-XL, SVOX e Tokyo 24/7. Usam, além das métricas de incerteza, precision-recall, AUPRC (area under precision-recall curve). 
+
+As conclusões provenientes dos resultados são de que cenários de baixas incertezas levam a reranking ser potencialmente prejudicial, ao contrário de altas incertezas. 
+
+
+\section{Modelos de VPR baseados em SOM}
+
+Cebollada et al.~\cite{evaluation} utilizam SOMs para \ac{VPR} com o objetivo de reduzir o tempo de computação com mínima perda de acurácia, utilizando um mapa topológico hierárquico. Em seu trabalho, a posição dos nós é determinada pela posição média das imagens agrupadas, e o vetor de características da imagem de consulta é comparado com o peso de cada nó na rede, sendo o protótipo mais próximo (\ac{BMU}) aquele que determina a posição. Da Silva et al.~\cite{scmusom} utilizam um modelo baseado em SOM mais sofisticado. Em vez de determinar as posições dos nós, ele foca exclusivamente no agrupamento do banco de dados de referência envolvido no processo de correspondência, evitando erros relacionados à estimativa da posição dos nós, ao mesmo tempo que reduz significativamente o tempo de computação.  
+
+Alguns modelos utilizam estruturas \ac{SOM-TVS} para \ac{VPR}. Kazmi e Mertsching~\cite{gsom_vpr} introduziram uma abordagem que atualiza a rede online, utilizando as ativações dos nós para estimar a localização atual do agente e detectar locais revisitados. De forma similar, Zhang et al.~\cite{gsomapp1} empregaram um modelo baseado em \ac{SOM-TVS} para construir mapas cognitivos, associando as ativações das células de grade à informação visual, permitindo assim o reconhecimento de lugares. Nos trabalhos anteriores, a atualização do SOM ocorre enquanto o agente explora o ambiente, enquanto em nossa abordagem a fase de aprendizado é totalmente offline: as imagens são coletadas previamente e o SOM é treinado apenas uma vez. Essa característica torna nosso método mais adequado para casos em que o mapeamento prévio é viável, e quando o objetivo é explorar o agrupamento e a representação baseada em protótipos para reduzir o tempo de correspondência.
+
+
+
+
+\bibliographystyle{IEEEtran.bst}
+\bibliography{IEEEexample}
+
+
+\end{document}

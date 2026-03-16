@@ -1,0 +1,172 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{#1}
+\csname url@rmstyle\endcsname
+\providecommand{\newblock}{\relax}
+\providecommand{\bibinfo}[2]{#2}
+\providecommand\BIBentrySTDinterwordspacing{\spaceskip=0pt\relax}
+\providecommand\BIBentryALTinterwordstretchfactor{4}
+\providecommand\BIBentryALTinterwordspacing{\spaceskip=\fontdimen2\font plus
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
+\providecommand\BIBforeignlanguage[2]{{%
+\expandafter\ifx\csname l@#1\endcsname\relax
+\typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
+\typeout{** loaded for the language `#1'. Using the pattern for}%
+\typeout{** the default language instead.}%
+\else
+\language=\csname l@#1\endcsname
+\fi
+#2}}
+
+\bibitem{baidu}
+X.~Sun, Y.~Xie, P.~Luo, and L.~Wang, ``A dataset for benchmarking image-based
+  localization,'' in \emph{Proceedings of the IEEE conference on computer
+  vision and pattern recognition}, 2017, pp. 7436--7444.
+
+\bibitem{garden}
+A.~Glover, ``Gardens point day and night, left and right,'' \emph{Zenodo DOI},
+  vol.~10, p.~3, 2014.
+
+\bibitem{places}
+R.~Sahdev and J.~K. Tsotsos, ``Indoor place recognition system for localization
+  of mobile robots,'' in \emph{2016 13th Conference on computer and robot
+  vision (CRV)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2016, pp. 53--60.
+
+\bibitem{pitts}
+A.~Torii, J.~Sivic, T.~Pajdla, and M.~Okutomi, ``Visual place recognition with
+  repetitive structures,'' in \emph{2013 IEEE Conference on Computer Vision and
+  Pattern Recognition}, 2013, pp. 883--890.
+
+\bibitem{nordland}
+N.~S{\"u}nderhauf, P.~Neubert, and P.~Protzel, ``Are we there yet? challenging
+  seqslam on a 3000 km journey across all four seasons,'' in \emph{Proc. of
+  workshop on long-term autonomy, IEEE international conference on robotics and
+  automation (ICRA)}.\hskip 1em plus 0.5em minus 0.4em\relax Citeseer, 2013, p.
+  2013.
+
+\bibitem{st_lucia}
+A.~J. Glover, W.~P. Maddern, M.~J. Milford, and G.~F. Wyeth, ``Fab-map +
+  ratslam: Appearance-based slam for multiple times of day,'' in \emph{2010
+  IEEE International Conference on Robotics and Automation}, 2010, pp.
+  3507--3512.
+
+\bibitem{oxfordrobotcar}
+W.~Maddern, G.~Pascoe, C.~Linegar, and P.~Newman, ``1 year, 1000 km: The oxford
+  robotcar dataset,'' \emph{The International Journal of Robotics Research},
+  vol.~36, no.~1, pp. 3--15, 2017.
+
+\bibitem{amstertime}
+B.~Yildiz, S.~Khademi, R.~M. Siebes, and J.~Van~Gemert, ``Amstertime: A visual
+  place recognition benchmark dataset for severe domain shift,'' in \emph{2022
+  26th International Conference on Pattern Recognition (ICPR)}.\hskip 1em plus
+  0.5em minus 0.4em\relax IEEE, 2022, pp. 2749--2755.
+
+\bibitem{selavpr}
+F.~Lu, L.~Zhang, X.~Lan, S.~Dong, Y.~Wang, and C.~Yuan, ``Towards seamless
+  adaptation of pre-trained models for visual place recognition,'' \emph{arXiv
+  preprint arXiv:2402.14505}, 2024.
+
+\bibitem{low-bit}
+O.~Grainge, M.~Milford, I.~Bodala, S.~D. Ramchurn, and S.~Ehsan, ``Design space
+  exploration of low-bit quantized neural networks for visual place
+  recognition,'' \emph{IEEE Robotics and Automation Letters}, vol.~9, no.~6,
+  pp. 5070--5077, 2024.
+
+\bibitem{anyloc}
+N.~Keetha, A.~Mishra, J.~Karhade, K.~M. Jatavallabhula, S.~Scherer, M.~Krishna,
+  and S.~Garg, ``Anyloc: Towards universal visual place recognition,''
+  \emph{IEEE Robotics and Automation Letters}, vol.~9, no.~2, pp. 1286--1293,
+  2023.
+
+\bibitem{boq}
+A.~Ali-Bey, B.~Chaib-Draa, and P.~Giguere, ``Boq: A place is worth a bag of
+  learnable queries,'' in \emph{Proceedings of the IEEE/CVF conference on
+  computer vision and pattern recognition}, 2024, pp. 17\,794--17\,803.
+
+\bibitem{close}
+S.~Izquierdo and J.~Civera, ``Close, but not there: Boosting geographic
+  distance sensitivity in visual place recognition,'' in \emph{European
+  Conference on Computer Vision}.\hskip 1em plus 0.5em minus 0.4em\relax
+  Springer, 2024, pp. 240--257.
+
+\bibitem{crica}
+F.~Lu, X.~Lan, L.~Zhang, D.~Jiang, Y.~Wang, and C.~Yuan, ``Cricavpr:
+  Cross-image correlation-aware representation learning for visual place
+  recognition,'' in \emph{Proceedings of the IEEE/CVF conference on computer
+  vision and pattern recognition}, 2024, pp. 16\,772--16\,782.
+
+\bibitem{dino}
+G.~Huang, Y.~Zhou, X.~Hu, C.~Zhang, L.~Zhao, and W.~Gan, ``Dino-mix enhancing
+  visual place recognition with foundational vision model and feature mixing,''
+  \emph{Scientific Reports}, vol.~14, no.~1, p. 22100, 2024.
+
+\bibitem{optimaltrans}
+S.~Izquierdo and J.~Civera, ``Optimal transport aggregation for visual place
+  recognition,'' in \emph{Proceedings of the ieee/cvf conference on computer
+  vision and pattern recognition}, 2024, pp. 17\,658--17\,668.
+
+\bibitem{supervlad}
+F.~Lu, X.~Zhang, C.~Ye, S.~Dong, L.~Zhang, X.~Lan, and C.~Yuan, ``Supervlad:
+  Compact and robust image descriptors for visual place recognition,''
+  \emph{Advances in Neural Information Processing Systems}, vol.~37, pp.
+  5789--5816, 2024.
+
+\bibitem{imvpr}
+X.~Cao, C.~Zhang, Z.~Liu, X.~Zhong, and H.~Fang, ``Imvpr: Implicit bev-enhanced
+  multi-view aggregation for visual place recognition,'' in \emph{2025 IEEE/RSJ
+  International Conference on Intelligent Robots and Systems (IROS)}.\hskip 1em
+  plus 0.5em minus 0.4em\relax IEEE, 2025, pp. 9669--9676.
+
+\bibitem{structvpr++}
+Y.~Shen, S.~Zhou, J.~Fu, R.~Wang, S.~Chen, and N.~Zheng, ``Structvpr++: distill
+  structural and semantic knowledge with weighting samples for visual place
+  recognition,'' \emph{IEEE Transactions on Pattern Analysis and Machine
+  Intelligence}, 2025.
+
+\bibitem{tetravpr}
+O.~Grainge, M.~J. Milford, I.~Bodala, S.~D. Ramchurn, and S.~Ehsan,
+  ``Tetra-vpr: A ternary transformer approach for compact visual place
+  recognition,'' \emph{IEEE Robotics and Automation Letters}, 2025.
+
+\bibitem{homography}
+F.~Lu, S.~Dong, L.~Zhang, B.~Liu, X.~Lan, D.~Jiang, and C.~Yuan, ``Deep
+  homography estimation for visual place recognition,'' in \emph{Proceedings of
+  the AAAI conference on artificial intelligence}, vol.~38, no.~9, 2024, pp.
+  10\,341--10\,349.
+
+\bibitem{selavpr++}
+F.~Lu and T.~Jin, ``Xiangyuan lan, lijun zhang, yunpeng liu, yaowei wang, and
+  chun yuan. selavpr++: Towards seamless adaptation of foundation models for
+  efficient place recognition,'' \emph{IEEE Transactions on Pattern Analysis
+  and Machine Intelligence}, pp. 1--18, 2025.
+
+\bibitem{matchnotmatch}
+D.~Sferrazza, G.~Berton, G.~Trivigno, and C.~Masone, ``To match or not to
+  match: Revisiting image matching for reliable visual place recognition,'' in
+  \emph{Proceedings of the Computer Vision and Pattern Recognition Conference},
+  2025, pp. 2849--2860.
+
+\bibitem{evaluation}
+S.~Cebollada, L.~Payá, W.~Mayol, and O.~Reinoso, ``Evaluation of clustering
+  methods in compression of topological models and visual place recognition
+  using global appearance descriptors,'' \emph{Applied Sciences}, vol.~9,
+  no.~3, 2019.
+
+\bibitem{scmusom}
+A.~F. L.~A. Da~Silva, M.~R. Da~Silva~Júnior, A.~F.~R. Araújo, and
+  A.~Durand-Petiteville, ``Visual place recognition under a high-dimensional
+  subspace clustering perspective,'' in \emph{2023 Latin American Robotics
+  Symposium (LARS), 2023 Brazilian Symposium on Robotics (SBR), and 2023
+  Workshop on Robotics in Education (WRE)}, 2023, pp. 508--513.
+
+\bibitem{gsom_vpr}
+S.~M. A.~M. Kazmi and B.~Mertsching, ``Detecting the expectancy of a place
+  using nearby context for appearance-based mapping,'' \emph{IEEE Transactions
+  on Robotics}, vol.~35, no.~6, pp. 1352--1366, 2019.
+
+\bibitem{gsomapp1}
+Y.~Zhang, M.~Chen, D.~Tian, and L.~Ding, ``Biomimetic slam algorithm based on
+  growing self-organizing map,'' \emph{IEEE Access}, vol.~9, pp.
+  134\,660--134\,671, 2021.
+
+\end{thebibliography}
