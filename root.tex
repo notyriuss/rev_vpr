@@ -92,32 +92,30 @@ O BaiduMall~\cite{baidu} é um conjunto de dados que visa salvar a \textit{pose}
 
 GardensPoint~\cite{garden} é um dataset pequeno e bastante utilizado em VPR para avaliar robustez a mudanças de iluminação e viewpoint. Ele foi coletado em um campus universitário na Austrália e contém três sequências de imagens obtidas ao longo do mesmo trajeto: durante o dia, à noite e caminhando no sentido oposto. As imagens são capturadas em sequência ao longo de um percurso.
 
-O dataset 17 Places~\cite{places} consiste em imagens de diferentes tipos de ambientes urbanos e internos. Ele contém imagens independentes, e não sequências temporais, sendo frequentemente utilizado para avaliar a capacidade de generalização de descritores globais em diferentes tipos de locais.
+O dataset 17 Places~\cite{places} consiste em imagens de diferentes tipos de ambientes urbanos e internos. Ele contém imagens independentes, e não sequências temporais.
 
-
-Os datasets Pitts30k e Pitts250k são derivados do conjunto Pittsburgh~\cite{pitts} e foram construídos a partir de imagens do Google Street View. As imagens são coletadas em ambiente urbano e possuem correspondências obtidas via coordenadas GPS. Não são sequências contínuas de vídeo, mas sim imagens discretas associadas a localizações geográficas. Pitts30k é uma versão menor usada principalmente para treinamento e avaliação, enquanto Pitts250k é um conjunto significativamente maior.
+Os datasets Pitts30k e Pitts250k são derivados do conjunto Pittsburgh~\cite{pitts} e foram construídos a partir de imagens do Google Street View. As imagens são coletadas em ambiente urbano e possuem correspondências obtidas via coordenadas GPS. Não são sequências contínuas, mas sim imagens discretas associadas a localizações geográficas. Pitts30k é uma versão menor usada principalmente para treinamento e avaliação, enquanto Pitts250k é um conjunto significativamente maior.
 
 
 Nordland~\cite{nordland} é um dataset composto por vídeos gravados a partir de uma câmera montada em um trem que percorre a mesma rota na Noruega durante quatro estações do ano. As imagens são extraídas de sequências contínuas e apresentam grandes mudanças sazonais, incluindo neve, vegetação e iluminação distintas.
 
 
-O dataset St Lucia~\cite{st_lucia} foi coletado em áreas suburbanas da cidade de Brisbane, Austrália. As imagens foram capturadas por um veículo percorrendo ruas residenciais em diferentes horários do dia. O conjunto contém sequências de imagens associadas a trajetórias, permitindo avaliar robustez a mudanças de iluminação e tráfego.
+O dataset St Lucia~\cite{st_lucia} foi coletado em áreas suburbanas da cidade de Brisbane, Austrália. As imagens foram capturadas por um veículo percorrendo ruas residenciais em diferentes horários do dia. O conjunto contém sequências de imagens associadas a trajetórias.
 
-Oxford RobotCar~\cite{oxfordrobotcar} é um dataset urbano de larga escala coletado por um veículo autônomo na cidade de Oxford. As imagens foram adquiridas ao longo de mais de um ano, incluindo condições de dia, noite, chuva e neve. As capturas seguem trajetórias repetidas, o que possibilita avaliar métodos sob mudanças extremas de iluminação e clima.
+Oxford RobotCar~\cite{oxfordrobotcar} é um dataset urbano de larga escala coletado por um veículo autônomo na cidade de Oxford. As imagens foram adquiridas ao longo de mais de um ano, incluindo condições de dia, noite, chuva e neve. As capturas seguem trajetórias repetidas.
 
 
-O dataset Hawkins~\cite{hawk} é um dataset em ambientes degradados com 30 cenas como corredores não estruturados, diferentes variações de iluminação, areia e fumaça, assim como dados coletados com camera \textit{fisheye}, LiDAR e IMU.
+O dataset Hawkins~\cite{hawkins} é um dataset em ambientes degradados com 30 cenas como corredores não estruturados, diferentes variações de iluminação, areia e fumaça, assim como dados coletados com camera \textit{fisheye}, LiDAR e IMU.
 
-SF-XL é um dataset urbano de larga escala coletado em São Francisco. Ele contém imagens de ruas obtidas a partir de serviços de mapeamento ou veículos equipados com câmeras. O dataset é projetado para avaliação em larga escala de sistemas de recuperação de lugares.
+SF-XL\cite{sf-xl} é um dataset urbano de larga escala coletado em São Francisco. Ele contém imagens de ruas obtidas a partir de serviços de mapeamento ou veículos equipados com câmeras, não seguindo uma trajetória contínua.
 
-MSLS (Mapillary Street-Level Sequences) é um dataset de larga escala composto por imagens coletadas pela plataforma Mapillary. Ele contém sequências de imagens capturadas em diversas cidades ao redor do mundo, com grande diversidade de ambientes urbanos e condições climáticas.
+MSLS (Mapillary Street-Level Sequences) é um dataset de larga escala composto por imagens coletadas pela plataforma Mapillary. Ele contém sequências de imagens capturadas em diversas cidades ao redor do mundo.
 
 
 Tokyo 24/7 é um dataset urbano coletado na cidade de Tóquio. Ele contém imagens capturadas em diferentes horários do dia, incluindo dia, entardecer e noite, permitindo avaliar robustez a mudanças de iluminação extrema.
 
 
 SVOX é um dataset voltado para avaliação de reconhecimento visual em ambientes urbanos. Ele contém imagens com variações de viewpoint e iluminação, frequentemente associadas a trajetórias de veículos.
-
 
 AmsterTime \cite{amstertime} é um dataset coletado na cidade de Amsterdã com foco em mudanças temporais.
 
@@ -147,10 +145,12 @@ Eles também chegam a usar GA para realizar uma busca de qual seria a melhor qua
 $$
 f(I) = -\frac{1}{L}\sum_{i=0}^{L}\left(Q(I; x_i) - M(x_i)\right)^2
 $$
+\noindent
 ou seja, o negativo do erro quadrático médio entre os descritores gerados pelos dois modelos. Essa maximização é realizada sob a restrição de orçamento de largura média de bits
 $$
 B \ge \frac{1}{T}\sum_{i=0}^{T} I_i ,
 $$
+\noindent
 onde $B$ representa o limite máximo permitido para a média de bits por camada e $T$ o número total de camadas da rede. Dessa forma, o processo de busca procura configurações de quantização que preservem a similaridade entre os descritores enquanto respeitam um orçamento de precisão que controla o compromisso entre eficiência computacional e desempenho do modelo.
 
 O modelo que eles usam é treinano no GSV-Cities. Já para os testes, os conjuntos de dados utilizados foram Pitts30k, MSLS e Nordland. As métricas usadas foram R@N, assim como latência e memória.
@@ -163,11 +163,10 @@ Anyloc~\cite{anyloc} foi o mais antigo entre os modelos de estágio único descr
 
 Dada uma imagem de dimensão $H \times W$, a rede produz um mapa de características onde cada posição espacial $i$ é representada por um vetor $f_i \in \mathbb{R}^D$. Para obter um descritor global da imagem, os autores investigam diferentes estratégias de agregação dessas características locais, incluindo Global Average Pooling (GAP), Global Max Pooling (GMP), Generalized Mean Pooling (GeM) e VLAD.
 
-No caso do GeM, o descritor global é calculado como
-
-\[
+No caso do GeM, o descritor global é calculado como,
+$$
 F_G = \left( \sum_{i=1}^{H \times W} f_i^p \right)^{\frac{1}{p}},
-\]
+$$
 
 onde o parâmetro $p$ controla o comportamento da agregação. Casos particulares dessa formulação incluem $p=1$, que corresponde ao Global Average Pooling (GAP), e $p \rightarrow \infty$, que aproxima o Global Max Pooling (GMP). Valores intermediários de $p$ permitem ajustar o grau de seletividade da agregação, possibilitando um compromisso entre média e máximo. Nos experimentos apresentados no artigo, o GeM apresentou desempenho superior entre os métodos avaliados.
 
@@ -181,25 +180,21 @@ Para seus experimentos, eles usam uma Nvidia RTX 3090 e os conjuntos de dados es
 
 Outro modelo de estágio único é o \cite{boq}, o qual busca reduzir a diferença de desempenho entro o VPR de estágio-único e de dois estágios. Neste modelo, dada uma imagem de dimensões $3\times H\times W$, ela é processada por um \texit{backbone} que produz um conjunto de ($N$) características de dimensão ($d$). Essas características são então passadas por uma sequência de \textit{transformer encoders} intercalados com blocos BoQ (Bag-of-Queries).
 
-Cada bloco BoQ contém um conjunto de ($M$) \textit{queries} treináveis. Inicialmente, aplica-se \textit{self-attention} entre as \textit{queries}, permitindo a troca de informação entre elas:
-
+Cada bloco BoQ contém um conjunto de ($M$) \textit{queries} treináveis. Inicialmente, aplica-se \textit{self-attention} entre as \textit{queries}, permitindo a troca de informação entre elas,
 $$
 Q_i = \text{MHA}(Q_i, Q_i, Q_i) + Q_i$$
 
-Em seguida, ocorre \textit{cross-attention} entre as \textit{queries} e as \textit{features} de entrada ($X_i$), permitindo que cada \textit{query} avalie dinamicamente a relevância das \textit{features} e agregue essa informação em sua saída:
-
+Em seguida, ocorre \textit{cross-attention} entre as \textit{queries} e as \textit{features} de entrada ($X_i$), permitindo que cada \textit{query} avalie dinamicamente a relevância das \textit{features} e agregue essa informação em sua saída,
 $$
 O_i = \text{MHA}(Q_i, X_i, X_i)
 $$
 
-As saídas de todos os blocos são concatenadas:
-
+As saídas de todos os blocos são concatenadas,
  $$
  O = \text{Concat}(O_1, O_2, \dots, O_L)
  $$
 
- Em seguida, projeções lineares ($W_1$) e ($W_2$) reduzem a dimensionalidade do descritor global:
-
+ Em seguida, projeções lineares ($W_1$) e ($W_2$) reduzem a dimensionalidade do descritor global,
  $$
  \text{Output} = W_2\big(W_1 O\big)^T
  $$
@@ -225,7 +220,7 @@ Antes de entrar na rede, a imagem é dividida em (N) \texit{patches} de dimensã
 
 A principal proposta do método é correlacionar as representações das imagens dentro de um mesmo \textit{batch}. Assim, cada representação pode incorporar informações de outras imagens, aumentando sua robustez.
 
-Para isso, aplica-se uma \textit{spatial pyramid} em cada imagem do \textit{batch}, dividindo-a em 14 regiões. Cada região é representada por um vetor (f_i). Em seguida, os vetores de todas as regiões de todas as imagens do \textit{batch} são processados por um transformer, permitindo modelar relações entre regiões pertencentes a imagens diferentes.
+Para isso, aplica-se uma \textit{spatial pyramid} em cada imagem do \textit{batch}, dividindo-a em 14 regiões. Cada região é representada por um vetor ($f_i$). Em seguida, os vetores de todas as regiões de todas as imagens do \textit{batch} são processados por um transformer, permitindo modelar relações entre regiões pertencentes a imagens diferentes.
 
 Por fim, as saídas dos transformers são concatenadas e projetadas em uma única \textit{feature} global. Durante o treinamento, o método também realiza \textit{hard pair mining}, selecionando apenas os pares mais difíceis (positivos pouco similares ou negativos muito similares).
 
@@ -233,7 +228,7 @@ Esse modelo é treinado no GSV-Cities usando perda de multi-similaridade, sendo 
 
 O resultado foi melhor em todos os casos, usando R@N como métrica, mostrando maior impacto com a introdução do adaptador multiconvolucional, mas sem comparações de tempo computacional.
 
-\cite{DinoMix}
+\subsection{DinoMix}
 
 Neste trabalho \cite{dino}, a principal contribuição se encontra na proposição de um \textit{framework} o qual combina um modelo de base com um módulo de mistura.
 
@@ -265,7 +260,6 @@ Ele executa um query com uma latencia da ordem de milisegundos (para uma 3090), 
 \subsection{SuperVlad}
 
 \cite{supervlad} modifica a camada de agregação do NetVLAD, desconsiderando o cálculo dos centroides durante o treinamento, de forma a focar na diminuição dos parâmetros, também usando um pequeno número de clusters para gerar descritores compactos. Com a remoção dos centroides, a equação fica,
-
 $$
 V_{k,j} = \sum_{i=1}^{N} a_k(x_i) x_{i,j}
 $$
@@ -297,7 +291,7 @@ A principal ideia é aplicar um pipeline de distillation progressiva, no qual o 
 Com isso, o método busca obter modelos compactos e eficientes, mantendo uma boa performance em tarefas de VPR.
 
 
-O treinamento foi realizado no GSV-Cities com o \textit{backbone} congelado. Modelos de agregação como MixVPR, SALAD E BoQ são treinados em cima desses \textit{backbones}. Para o treinamento, foram usadas 4 gpus H100. Os testes foram realizados no MSLS, Pitts30k, TOkyo24/7 e SVOX. As comparaçõs foram realizadas contra SALAD, BoQ, eigenplaces, cosplace, FloppyNet, NetVLADSP, SALAD em diferentes backbones quantizado.  Esses modelos foram comparados com TeTRA com BoQ SALAD e MixVPR.
+O treinamento foi realizado no GSV-Cities com o \textit{backbone} congelado. Modelos de agregação como MixVPR, SALAD E BoQ são treinados em cima desses \textit{backbones}. Para o treinamento, foram usadas 4 gpus H100. Os testes foram realizados no MSLS, Pitts30k, Tokyo24/7 e SVOX. As comparaçõs foram realizadas contra SALAD, BoQ, eigenplaces, cosplace, FloppyNet, NetVLADSP, SALAD em diferentes backbones quantizado.  Esses modelos foram comparados com TeTRA com BoQ SALAD e MixVPR.
 
 Suas configurações não mostram maior R@1, mas mostram maior R@1/MB.
 
@@ -309,7 +303,7 @@ Suas configurações não mostram maior R@1, mas mostram maior R@1/MB.
 
 Modelos base tem a habilidade de generalizar bem diferentes representações de forma robusta. Contudo, a representação produzida da imagem é sucetível a objetos dinêmicos, podendo ignorar o pano de fundo estático e discriminativo. Contudo, tentar aprender em um conjunto de dados posterior, pode introduzir "esquecimento catastrófico". Portanto, \cite{selavpr} propõem criar uma rede híbrida com características locais e globais, focando am \textit{landmarks} discriminativos e ignorando regiões irrelevantes, sendo a discriminação introduzida pelo viés dos conjuntos de dados utilizados no treinamento. Além disso, eles também propõem função de perda especificamente para a adaptação local, a qual é combinada com a perda global para o \texit{fine-tuning}.
 
-A imagem é dividida em N patches de dimensão D $x_p \in R^{N \times D}$, sendo acrescentado posteriormente um token aprendível $x_class$ de forma que $x_0 = [x_{class}; x_p] \in R^{(N+1) \times D}$. Depois é adicionado ao $x_0$ uma codificação posicional - um vetor indicando a posição de cada patch na imagem. Então o vetor representativo da imagem passa primeiramente por varios blocos de tranformers (compostos sucessivamente por camada de normalização -> MHA -> camaad de normalização -> MLP). 
+A imagem é dividida em N patches de dimensão D $x_p \in R^{N \times D}$, sendo acrescentado posteriormente um token aprendível $x_class$ de forma que $x_0 = [x_{class}; x_p] \in R^{(N+1) \times D}$. Depois é adicionado ao $x_0$ uma codificação posicional - um vetor indicando a posição de cada patch na imagem. Então o vetor representativo da imagem passa primeiramente por varios blocos de tranformers, composto por uma MHA entre duas camadas de normalização e uma MLP. 
 
 A contribuição o modelo é a adição de adaptadores no meio da arquitetura desses blocos. Por fim, usa Gem para juntar as características de cada patch, formando o vetor de caracteríticas global (usado para recuperação).
 
@@ -377,8 +371,6 @@ Em \cite{homography} também se trata do alto custo computacional devido ao re-r
 Para o modelo o CCT é usado como \textit{backbone}, sendo a saída um tensor $M times C$, com $M$ sendo o número de \textit{patches} e $C$ o número de canais, os quais podem ser redimensionados para $W \times H \times C$. Posteriormente GeM é usada para agregação. Já sua rede DHE tem os feature maps como entrada tanto do query quanto das imagens candidtas, sendo usado para estimação da homografia, sendo o número dos inliers usado como métrica de similaridade dos pares das imagens para re-rank. 
 
 Para a rede DHE, os feature maps do query e das imagens candidatos são usadas como entrada. A rede consiste de dois módulos, similarity matching module e homography regression module.  O SMM usa a similaridade dos cossenos para computar um mapa de similaridade MxM, entre as características locais do query e candidatos. Ao invés de tentar estimar a matriz de homografia, a similaridade entre quatro pontos é que é estimada por: 
-
-
 $$
 \text{TransE}(s_{qc} + E_{\text{pos}}) = [p_{q1}, \dots, p_{q4} \mid p_{c1}, \dots, p_{c4}] = [P_q, P_c],
 $$
@@ -389,7 +381,6 @@ H_{qc} = \text{DLT}(P_q, P_c),
 $$
 
 Já para o reranking, cada feature é combinada par a par e são escolhidos os pares de maior similaridade dentro da imagem. Posteriormente, a imagem de query é reprojetada com $H_{qc}$ e os \textit{inliers} são dados por,
-
 $$
 \|C(p_c) - C(H_{qc} p_q)\| \leq \theta,
 $$
@@ -397,12 +388,10 @@ em que $C(\cdot)$ converte coordenadas homogêneas para cartesianadas.
 
 
 Para o treinamento, o backbone e a rede DHE são primeiramente inicializados separadamente. O backbone é treinado com uma triplet-based global feature loss:
-
 $$
 L_g = \sum_j \max(0, d_G(q, p_q) + m - d_G(q, n_q^j)),
 $$
-em que $d_G$ é a distância L2 entre as características globais e $m$ é uma margem. A rede DHE é treinada usando **Re-projection Error of Inliers (REI) loss**:  
-
+em que $d_G$ é a distância L2 entre as características globais e $m$ é uma margem. A rede DHE é treinada usando \textit{Re-projection Error of Inliers loss},  
 $$
 L_r = \frac{1}{N} \sum_{(\hat{p}_c, \hat{p}_q) \in \text{IN}} \|C(\hat{p}_c) - C(H_{qc} \hat{p}_q)\|.
 $$
@@ -419,7 +408,7 @@ O modelo se apresentou ser melhor em quase todos os casos, sendo segundo melhor 
 
 
 \subsection{SelaVPR++}
-\cite{selavpr++} é uma modificação do SelaVPR focando no uso de memória da GPU e no tempo de treinamento, tempo de re-ranqueamento e armazenamento necessário para as características locais. A modificação é nos adaptadores, utilizando MultiConv, baseado em \cite{CricaVPR}. As características são de baixa dimensão e binárias para retrieval e float de alta dimensionalidade para re-ranking.Eles criam uma nova loss devido ao uso das características binárias.Treina em GSV-Cities, SF-XL, Pitts30k, MSLS juntamente para treinar o modelo (diferentemente de como eles fizeram anteriormente). Usa características globais para ambos os estados, binário para matching e float para re-ranking.
+\cite{selavpr++} é uma modificação do SelaVPR focando no uso de memória da GPU e no tempo de treinamento, tempo de re-ranqueamento e armazenamento necessário para as características locais. A modificação é nos adaptadores, utilizando MultiConv, baseado em \cite{crica}. As características são de baixa dimensão e binárias para retrieval e float de alta dimensionalidade para re-ranking.Eles criam uma nova loss devido ao uso das características binárias.Treina em GSV-Cities, SF-XL, Pitts30k, MSLS juntamente para treinar o modelo (diferentemente de como eles fizeram anteriormente). Usa características globais para ambos os estados, binário para matching e float para re-ranking.
 
 
 Eles usam características binárias para o \textit{matching}, o qual é performado por \textit{hashing}, assim como características globais em ponto flutuante para o reranqueamento. Eles alteram a estrutura dos adaptadores de forma a deixar o treinamento muito mais rápido e consumindo muito menos memória, devido ao \textit{backpropagation} não considerar o \textit{backbone}.

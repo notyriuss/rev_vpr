@@ -12,53 +12,51 @@ Repeated entry---line 800 of file IEEEexample.bib
  : @inproceedings{pitts
  :                     ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "hawk"
-Warning--I didn't find a database entry for "DinoMix"
-Warning--I didn't find a database entry for "CricaVPR"
 -- IEEEtran.bst version 1.11 (2003/04/02) by Michael Shell.
 -- http://www.ctan.org/tex-archive/macros/latex/contrib/supported/IEEEtran/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty year in hawkins
 
 Done.
-You've used 27 entries,
+You've used 29 entries,
             3975 wiz_defined-function locations,
-            945 strings with 12974 characters,
-and the built_in function-call counts, 24553 in all, are:
-= -- 1892
-> -- 665
-< -- 227
-+ -- 398
-- -- 143
-* -- 1205
-:= -- 3401
-add.period$ -- 59
-call.type$ -- 27
-change.case$ -- 27
-chr.to.int$ -- 561
-cite$ -- 27
-duplicate$ -- 1700
-empty$ -- 1981
-format.name$ -- 139
-if$ -- 5728
+            949 strings with 13432 characters,
+and the built_in function-call counts, 26215 in all, are:
+= -- 2002
+> -- 733
+< -- 238
++ -- 434
+- -- 157
+* -- 1287
+:= -- 3620
+add.period$ -- 63
+call.type$ -- 29
+change.case$ -- 29
+chr.to.int$ -- 591
+cite$ -- 30
+duplicate$ -- 1820
+empty$ -- 2121
+format.name$ -- 155
+if$ -- 6115
 int.to.chr$ -- 0
-int.to.str$ -- 27
-missing$ -- 289
-newline$ -- 101
-num.names$ -- 27
-pop$ -- 705
+int.to.str$ -- 29
+missing$ -- 314
+newline$ -- 107
+num.names$ -- 29
+pop$ -- 776
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1880
+skip$ -- 2002
 stack$ -- 0
-substring$ -- 1434
-swap$ -- 1453
-text.length$ -- 40
+substring$ -- 1506
+swap$ -- 1545
+text.length$ -- 41
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 0
-warning$ -- 0
-while$ -- 105
-width$ -- 29
-write$ -- 275
+warning$ -- 1
+while$ -- 111
+width$ -- 31
+write$ -- 291
 (There was 1 error message)

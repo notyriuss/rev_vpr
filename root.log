@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.2.18)  15 MAR 2026 18:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2026.1.30)  16 MAR 2026 08:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -452,15 +452,11 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 64.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-
-LaTeX Warning: Citation `hawk' on page 1 undefined on input line 109.
-
-[1
+) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 ! Undefined control sequence.
-l.142 Neste trebalho, vários \texit
+l.140 Neste trebalho, vários \texit
                                     {backbones} diferentes são testados, in...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -470,7 +466,7 @@ and I'll forget about whatever was undefined.
 
 [2]
 ! Undefined control sequence.
-l.182 ...times W$, ela é processada por um \texit
+l.181 ...times W$, ela é processada por um \texit
                                                   {backbone} que produz um c...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -479,7 +475,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.209 ...�m disso, eles usam ResNet-50 como \texit
+l.204 ...�m disso, eles usam ResNet-50 como \texit
                                                   {backbone} e treinam no GS...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -488,7 +484,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.213 ...m métodos de dois estágios, \citeauthor
+l.208 ...m métodos de dois estágios, \citeauthor
                                                   {close}~\cite{close} prop�...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -499,7 +495,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <recently read> \batches 
                          
-l.218 ...les criam uma coleçaõ de 4000 $\batches
+l.213 ...les criam uma coleçaõ de 4000 $\batches
                                                   $ para o treinamento e, al...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -508,7 +504,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.224 ... rede, a imagem é dividida em (N) \texit
+l.219 ... rede, a imagem é dividida em (N) \texit
                                                   {patches} de dimensão (D)...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -517,108 +513,17 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 5533) in paragraph at lines 226--227
+Underfull \hbox (badness 5533) in paragraph at lines 221--222
 []\OT1/ptm/m/n/10 A prin-ci-pal pro-posta do m[]etodo []e cor-rela-cionar as
  []
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.228 ... região é representada por um vetor (f_
-                                                  i). Em seguida, os vetores...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-LaTeX Warning: Command \~ invalid in math mode on input line 228.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.228 ...Em seguida, os vetores de todas as regiõ
-                                                  es de todas as imagens do ...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \~ invalid in math mode on input line 228.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.228 ...de todas as imagens do \textit{batch} sã
-                                                  o processados por um trans...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \c invalid in math mode on input line 228.
-
-
-LaTeX Warning: Command \~ invalid in math mode on input line 228.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.228 ... transformer, permitindo modelar relaçõ
-                                                  es entre regiões pertence...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-
-LaTeX Warning: Command \~ invalid in math mode on input line 228.
-
-! Please use \mathaccent for accents in math mode.
-\add@accent ... \let \ignorespaces \relax \accent 
-                                                  #1 #2\egroup \ifmmode \els...
-l.228 ...ermitindo modelar relações entre regiõ
-                                                  es pertencentes a imagens ...
-I'm changing \accent to \mathaccent here; wish me luck.
-(Accents are not the same in formulas as they are in text.)
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.229 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 228--229
-[]\OT1/ptm/m/n/10 Para isso, aplica-se uma \OT1/ptm/m/it/10 spa-tial pyra-mid \
-OT1/ptm/m/n/10 em
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 228--229
-\OT1/ptm/m/n/10 cada im-agem do \OT1/ptm/m/it/10 batch\OT1/ptm/m/n/10 , dividin
-do-a em 14
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 228--229
-\OT1/ptm/m/n/10 regi[]oes. Cada regi[]ao []e rep-re-sen-tada por um ve-tor
- []
-
-
-Overfull \hbox (534.5679pt too wide) in paragraph at lines 228--229
-\OT1/ptm/m/n/10 (f$[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :Emseguida; osvetoresdet
-odasasregi[]esdetodasasimagensdo[]s[]oprocessadosporumtransformer; permitindomo
-delarrela[][]esentreregi[]espertencentesaimagensdiferentes:$ 
- []
-
-[3]
-
-LaTeX Warning: Citation `DinoMix' on page 4 undefined on input line 236.
-
-[4]
-Underfull \hbox (badness 2213) in paragraph at lines 288--289
+[3] [4]
+Underfull \hbox (badness 2213) in paragraph at lines 282--283
 \OT1/ptm/m/n/10 SP-SuperGlue, DELG, Patch-NetVLAD-s, Patch-Netvlad-p,
  []
 
 ! Undefined control sequence.
-l.310 ...ombinada com a perda global para o \texit
+l.304 ...ombinada com a perda global para o \texit
                                                   {fine-tuning}.
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -627,7 +532,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (7.05751pt too wide) detected at line 322
+Overfull \hbox (7.05751pt too wide) detected at line 316
 \OML/cmm/m/it/10 s[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i; j\OT1/cmr/m/n/10 ) = \
 OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i\OT1/cmr/m/n/10 ) \OMS/cm
 sy/m/n/10 ^^A \OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 j\OT1/cmr/m
@@ -640,7 +545,7 @@ y/m/n/10 ^^B \OT1/cmr/m/n/10 61)
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.342 
+l.336 
       
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -648,7 +553,7 @@ you left one out. Proceed, with fingers crossed.
 ! Display math should end with $$.
 <to be read again> 
                    \tex_par:D 
-l.342 
+l.336 
       
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
@@ -656,7 +561,7 @@ So I shall assume that you typed `$$' both times.
 ! Display math should end with $$.
 <to be read again> 
                    l
-l.345 $l
+l.339 $l
         (x) = \max(x,0)$ e $f_q^g$, $f_p^g$, $f_{n_j}^g$ sendo característi...
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
@@ -664,13 +569,13 @@ So I shall assume that you typed `$$' both times.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.345 $l(x) = \max
+l.339 $l(x) = \max
                   (x,0)$ e $f_q^g$, $f_p^g$, $f_{n_j}^g$ sendo característi...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (6.78252pt too wide) detected at line 361
+Overfull \hbox (6.78252pt too wide) detected at line 355
 \OML/cmm/m/it/10 L[] \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 l []
  []
 
@@ -678,7 +583,7 @@ Overfull \hbox (6.78252pt too wide) detected at line 361
 ! Undefined control sequence.
 <argument> \texit 
                   {Deep Homography estimation}
-l.372 ...ction{\texit{Deep Homography estimation}}
+l.366 ...ction{\texit{Deep Homography estimation}}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -689,7 +594,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ...thesubsection\endcsname }\fi \texit 
                                                   {Deep Homography estimatio...
-l.372 ...ction{\texit{Deep Homography estimation}}
+l.366 ...ction{\texit{Deep Homography estimation}}
                                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -698,36 +603,33 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Citation `CricaVPR' on page 6 undefined on input line 422.
-
-[6]
-Underfull \hbox (badness 7064) in paragraph at lines 435--436
+Underfull \hbox (badness 7064) in paragraph at lines 424--425
 []\OT1/ptm/m/n/10 Seleciona di-ver-sos mod-e-los para compara[][]ao, como:
  []
 
 
-Underfull \hbox (badness 1354) in paragraph at lines 435--436
+Underfull \hbox (badness 1354) in paragraph at lines 424--425
 \OT1/ptm/m/n/10 RoMa e Tiny-RoMam, Steer-ers, Affine Steeres, DUSt3R,
  []
 
 
-Underfull \hbox (badness 3895) in paragraph at lines 435--436
+Underfull \hbox (badness 3895) in paragraph at lines 424--425
 \OT1/ptm/m/n/10 MASt3r, xFeat, GIM-DKMv3 e GIM-LightGlue. Dessas
  []
 
-
-Underfull \hbox (badness 1394) in paragraph at lines 443--444
+[6]
+Underfull \hbox (badness 1394) in paragraph at lines 432--433
 []\OT1/ptm/m/n/10 As con-clus[]oes prove-nientes dos re-sul-ta-dos s[]ao de que
 
  []
 
 Package acronym Info: Label `acro:VPR' newly defined as it shall be overridden
-although it is yet undefined on input line 448.
+although it is yet undefined on input line 437.
 Package acronym Info: Label `acro:BMU' newly defined as it shall be overridden
-although it is yet undefined on input line 448.
+although it is yet undefined on input line 437.
 Package acronym Info: Label `acro:SOM-TVS' newly defined as it shall be overrid
 den
-although it is yet undefined on input line 450.
+although it is yet undefined on input line 439.
 (./root.bbl [7])
 
 ** Conference Paper **
@@ -742,34 +644,30 @@ Before submitting the final camera ready copy, remember to:
 
 [8
 
-] (./root.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+] (./root.aux) ) 
 Here is how much of TeX's memory you used:
- 6971 strings out of 480171
- 111726 string characters out of 5894489
- 430523 words of memory out of 5000000
- 24844 multiletter control sequences out of 15000+600000
+ 6973 strings out of 480154
+ 111742 string characters out of 5893788
+ 430586 words of memory out of 5000000
+ 24850 multiletter control sequences out of 15000+600000
  499977 words of font info for 85 fonts, out of 8000000 for 9000
- 59 hyphenation exceptions out of 8191
+ 61 hyphenation exceptions out of 8191
  67i,6n,77p,1170b,245s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/urw/times/utmri8a.pfb>
-Output written on root.pdf (8 pages, 214864 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on root.pdf (8 pages, 214200 bytes).
 PDF statistics:
  102 PDF objects out of 1000 (max. 8388607)
  63 compressed objects within 1 object stream

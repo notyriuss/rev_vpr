@@ -55,6 +55,17 @@ W.~Maddern, G.~Pascoe, C.~Linegar, and P.~Newman, ``1 year, 1000 km: The oxford
   robotcar dataset,'' \emph{The International Journal of Robotics Research},
   vol.~36, no.~1, pp. 3--15, 2017.
 
+\bibitem{hawkins}
+S.~Zhao, D.~Singh, H.~Sun, R.~Jiang, Y.~Gao, T.~Wu, J.~Karhade, C.~Whittaker,
+  I.~Higgins, J.~Xu, \emph{et~al.}, ``Subt-mrs: A subterranean, multi-robot,
+  multi-spectral and multi-degraded dataset for robust slam. arxiv 2023,''
+  \emph{arXiv preprint arXiv:2307.07607}.
+
+\bibitem{sf-xl}
+G.~Berton, C.~Masone, and B.~Caputo, ``Rethinking visual geo-localization for
+  large-scale applications,'' in \emph{Proceedings of the IEEE/CVF Conference
+  on Computer Vision and Pattern Recognition}, 2022, pp. 4878--4888.
+
 \bibitem{amstertime}
 B.~Yildiz, S.~Khademi, R.~M. Siebes, and J.~Van~Gemert, ``Amstertime: A visual
   place recognition benchmark dataset for severe domain shift,'' in \emph{2022
